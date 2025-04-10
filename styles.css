@@ -1208,18 +1208,64 @@ body {
     height: 100%;
     overflow: auto;
     background-color: rgba(0,0,0,0.7);
-    transition: all 0.3s ease;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top instead of center for better scrolling */
+    padding-top: 5vh; /* Add some top padding */
 }
 
 #safeSpaceModal .modal-content {
     background-color: #fff;
-    margin: 10% auto;
+    margin: 0 auto;
     max-width: 550px;
     width: 90%;
     border-radius: 12px;
     box-shadow: 0 15px 30px rgba(0,0,0,0.3);
     overflow: hidden;
     animation: modalSlideIn 0.4s ease-out;
+    max-height: 90vh; /* Limit height to 90% of viewport height */
+    overflow-y: auto; /* Enable scrolling for content */
+    position: relative; /* For positioning within modal container */
+}
+
+/* Make the form elements more compact */
+#safeSpaceModal .form-group {
+    margin-bottom: 12px;
+}
+
+#safeSpaceModal .form-row {
+    margin-bottom: 12px;
+}
+
+#safeSpaceModal label {
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+#safeSpaceModal input,
+#safeSpaceModal select,
+#safeSpaceModal textarea {
+    padding: 8px 10px;
+}
+
+#safeSpaceModal .payment-section {
+    padding: 15px;
+    margin: 15px 0;
+}
+
+#safeSpaceModal .emergency-notice {
+    padding: 12px;
+    margin: 15px 0;
+}
+
+#safeSpaceModal .mental-health-resources {
+    margin-top: 15px;
+}
+
+#safeSpaceModal .resources-list li {
+    margin-bottom: 8px;
 }
 
 @keyframes modalSlideIn {

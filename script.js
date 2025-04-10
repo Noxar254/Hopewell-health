@@ -18,6 +18,272 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// Form Modal System - Opens/closes modal forms
+document.addEventListener('DOMContentLoaded', () => {
+    // ------ Modal Form System ------
+    function setupModalSystem() {
+        const modals = {
+            'consultationModal': {
+                openButtons: ['#consultation-btn', '.cta-button:first-child'],
+                closeButtons: '#consultationModal .close-modal',
+                form: '#consultationModalForm'
+            },
+            'homeCareModal': {
+                openButtons: ['#requestHomeCareCTA'],
+                closeButtons: '#homeCareModal .close-modal',
+                form: '#homeCareModalForm'
+            },
+            'medicalTourismModal': {
+                openButtons: ['#tourism-inquiry-btn', '#exploreMedicalTourism'],
+                closeButtons: '#medicalTourismModal .close-modal',
+                form: '#medicalTourismModalForm'
+            }
+        };
+
+        // Function to open modal
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+                
+                // Focus on the first input field for accessibility
+                setTimeout(() => {
+                    const firstInput = modal.querySelector('input:not([type="hidden"]), select, textarea');
+                    if (firstInput) firstInput.focus();
+                }, 100);
+                
+                // Announce modal opened for screen readers
+                const liveRegion = document.createElement('div');
+                liveRegion.setAttribute('aria-live', 'assertive');
+                liveRegion.setAttribute('class', 'sr-only');
+                liveRegion.textContent = `${modal.querySelector('.modal-header h3').textContent} dialog opened`;
+                document.body.appendChild(liveRegion);
+                setTimeout(() => document.body.removeChild(liveRegion), 1000);
+            }
+        }
+
+        // Function to close modal
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+        }
+
+        // Set up each modal
+        Object.entries(modals).forEach(([modalId, config]) => {
+            // Set up open buttons
+            config.openButtons.forEach(selector => {
+                const buttons = document.querySelectorAll(selector);
+                buttons.forEach(button => {
+                    if (button) {
+                        button.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            openModal(modalId);
+                        });
+                    }
+                });
+            });
+
+            // Set up close buttons
+            const closeButtons = document.querySelectorAll(config.closeButtons);
+            closeButtons.forEach(button => {
+                if (button) {
+                    button.addEventListener('click', () => closeModal(modalId));
+                }
+            });
+
+            // Close when clicking outside modal content
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        closeModal(modalId);
+                    }
+                });
+            }
+
+            // Set up form submission
+            const form = document.querySelector(config.form);
+            if (form) {
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    // Get form data
+                    const formData = new FormData(this);
+                    let emailSubject = '';
+                    
+                    // Set subject based on form
+                    if (modalId === 'consultationModal') {
+                        emailSubject = 'New Consultation Request';
+                    } else if (modalId === 'homeCareModal') {
+                        emailSubject = 'Home Care Service Request';
+                    } else if (modalId === 'medicalTourismModal') {
+                        emailSubject = 'Medical Tourism Inquiry';
+                    }
+                    
+                    // Prepare email content
+                    let emailBody = `${emailSubject}:\n\n`;
+                    formData.forEach((value, key) => {
+                        if (value instanceof File) {
+                            if (value.name) {
+                                emailBody += `${key}: File attached (${value.name})\n`;
+                            }
+                        } else {
+                            emailBody += `${key}: ${value}\n`;
+                        }
+                    });
+                    
+                    // Show loading state
+                    const submitBtn = form.querySelector('.submit-btn');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+                    
+                    try {
+                        // Send email using mailto
+                        const mailtoLink = `mailto:humphreyabwao@yahoo.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+                        window.location.href = mailtoLink;
+                        
+                        // Show success message
+                        submitBtn.innerHTML = '<i class="fas fa-check"></i> Success!';
+                        
+                        // Reset and close form after delay
+                        setTimeout(() => {
+                            form.reset();
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = originalText;
+                            closeModal(modalId);
+                            
+                            // Show confirmation alert
+                            alert('Thank you for your submission! An email has been prepared in your default email client. Please send it to complete your request.');
+                        }, 1500);
+                        
+                    } catch (error) {
+                        console.error('Error:', error);
+                        submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error';
+                        
+                        setTimeout(() => {
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = originalText;
+                            alert('There was an error processing your request. Please try again or contact us directly.');
+                        }, 1500);
+                    }
+                });
+            }
+        });
+
+        // Close modals with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                Object.keys(modals).forEach(modalId => {
+                    const modal = document.getElementById(modalId);
+                    if (modal && modal.style.display === 'flex') {
+                        closeModal(modalId);
+                    }
+                });
+            }
+        });
+
+        // Add additional modal triggers
+        // Home page CTA button
+        const ctaButton = document.querySelector('.hero .cta-button:first-child');
+        if (ctaButton) {
+            ctaButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal('consultationModal');
+            });
+        }
+
+        // Add a button to the Medical Tourism section
+        const medicalTourismSection = document.querySelector('.medical-tourism-info');
+        if (medicalTourismSection) {
+            const tourismBtn = document.createElement('a');
+            tourismBtn.href = '#';
+            tourismBtn.id = 'tourism-inquiry-btn';
+            tourismBtn.className = 'cta-button';
+            tourismBtn.textContent = 'Request Information';
+            tourismBtn.style.display = 'inline-block';
+            tourismBtn.style.marginTop = '30px';
+            
+            // Check if we already have this button
+            if (!document.getElementById('tourism-inquiry-btn')) {
+                medicalTourismSection.appendChild(tourismBtn);
+            }
+        }
+
+        // Service cards - add buttons to each service
+        document.querySelectorAll('.service-card').forEach(card => {
+            const serviceName = card.querySelector('h3').textContent;
+            const button = document.createElement('a');
+            button.href = '#';
+            button.className = 'service-btn consultation-btn';
+            button.textContent = 'Book Consultation';
+            button.dataset.service = serviceName;
+            
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Set the department in the consultation form if possible
+                const departmentSelect = document.getElementById('departmentModal');
+                if (departmentSelect) {
+                    // Try to match the service name with a department option
+                    for (const option of departmentSelect.options) {
+                        if (option.text.toLowerCase().includes(serviceName.toLowerCase()) ||
+                            serviceName.toLowerCase().includes(option.text.toLowerCase())) {
+                            departmentSelect.value = option.value;
+                            break;
+                        }
+                    }
+                }
+                openModal('consultationModal');
+            });
+            
+            // Only add if it doesn't have a button already
+            if (!card.querySelector('.service-btn')) {
+                card.appendChild(button);
+            }
+        });
+    }
+
+    // Initialize modal system
+    setupModalSystem();
+
+    // Setup payment option selection
+    document.querySelectorAll('.payment-option').forEach(option => {
+        option.addEventListener('click', function() {
+            // Remove selected class from siblings
+            const siblings = [...this.parentElement.children];
+            siblings.forEach(sibling => sibling.classList.remove('selected'));
+            
+            // Add selected class to clicked option
+            this.classList.add('selected');
+            
+            // Update payment instructions
+            const instructionsDiv = this.closest('.payment-section').querySelector('.payment-instructions');
+            const method = this.getAttribute('data-method');
+            let instructions = '';
+            
+            switch(method) {
+                case 'mpesa':
+                    instructions = '<p><strong>M-Pesa Instructions:</strong> Send KSh 500 to Till No: 7636095 (Hopewell Health)</p>';
+                    break;
+                case 'card':
+                    instructions = '<p><strong>Card Payment Instructions:</strong> Click the Submit button to be redirected to our secure payment gateway.</p>';
+                    break;
+                case 'bank':
+                    instructions = '<p><strong>Bank Transfer Instructions:</strong> Transfer KSh 500 to Account: 1234567890, Bank: ABC Bank, Branch: Main.</p>';
+                    break;
+            }
+            
+            if (instructionsDiv) {
+                instructionsDiv.innerHTML = instructions;
+            }
+        });
+    });
+});
+
 // About Us Learn More button functionality
 document.addEventListener('DOMContentLoaded', () => {
     const learnMoreBtn = document.getElementById('aboutLearnMore');
@@ -233,9 +499,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-
-// Google Sheets Integration - Configuration
-// REMOVED: const SHEET_ID and GOOGLE_SHEET_URL are no longer needed
 
 // Function to send data to email
 async function sendToGoogleSheets(formData, formType) {
@@ -2055,3 +2318,194 @@ if (typeof originalSendToGoogleSheets === 'function') {
         return originalSendToGoogleSheets(formData, formType);
     }
 }
+
+// Service Buttons Modal Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all service buttons in the services section
+    const consultationButtons = document.querySelectorAll('.consultation-btn');
+    const tourismButtons = document.querySelectorAll('.tourism-btn');
+    
+    // Handle consultation buttons
+    consultationButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Get service type from data attribute
+            const serviceType = this.getAttribute('data-service');
+            
+            // Open consultation modal
+            const consultationModal = document.getElementById('consultationModal');
+            if (consultationModal) {
+                // Set the department in the modal based on service type
+                const departmentSelect = document.getElementById('departmentModal');
+                if (departmentSelect) {
+                    // Try to match the service with a department option
+                    switch(serviceType) {
+                        case 'cardiology':
+                            departmentSelect.value = 'cardiology';
+                            break;
+                        case 'neurology':
+                            departmentSelect.value = 'neurology';
+                            break;
+                        case 'orthopedics':
+                            departmentSelect.value = 'orthopedics';
+                            break;
+                        case 'obgyn':
+                            departmentSelect.value = 'obgyn';
+                            break;
+                        case 'emergency':
+                            // Set urgency to emergency for ambulance service
+                            const urgencySelect = document.getElementById('urgencyModal');
+                            if (urgencySelect) {
+                                urgencySelect.value = 'emergency';
+                            }
+                            departmentSelect.value = 'general';
+                            break;
+                        default:
+                            departmentSelect.value = 'general';
+                    }
+                }
+                
+                // Display the modal
+                consultationModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling behind modal
+                
+                // Focus the first input field for accessibility
+                setTimeout(() => {
+                    const firstInput = consultationModal.querySelector('input:not([type="hidden"]), select, textarea');
+                    if (firstInput) firstInput.focus();
+                }, 100);
+            }
+        });
+    });
+    
+    // Handle tourism buttons
+    tourismButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Open tourism modal
+            const tourismModal = document.getElementById('medicalTourismModal');
+            if (tourismModal) {
+                tourismModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling behind modal
+                
+                // Focus the first input field for accessibility
+                setTimeout(() => {
+                    const firstInput = tourismModal.querySelector('input:not([type="hidden"]), select, textarea');
+                    if (firstInput) firstInput.focus();
+                }, 100);
+            }
+        });
+    });
+    
+    // Close modals when clicking the close buttons
+    document.querySelectorAll('.close-modal').forEach(closeBtn => {
+        closeBtn.addEventListener('click', function() {
+            // Find the parent modal
+            const modal = this.closest('.modal-container');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+        });
+    });
+    
+    // Close modals when clicking outside the modal content
+    document.querySelectorAll('.modal-container').forEach(modal => {
+        modal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+        });
+    });
+    
+    // Close modals with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.modal-container').forEach(modal => {
+                if (modal.style.display === 'flex') {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = ''; // Restore scrolling
+                }
+            });
+        }
+    });
+    
+    // Also handle the home care button in the home care section
+    const requestHomeCareCTA = document.getElementById('requestHomeCareCTA');
+    if (requestHomeCareCTA) {
+        requestHomeCareCTA.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const homeCareModal = document.getElementById('homeCareModal');
+            if (homeCareModal) {
+                homeCareModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling behind modal
+                
+                // Focus the first input field for accessibility
+                setTimeout(() => {
+                    const firstInput = homeCareModal.querySelector('input:not([type="hidden"]), select, textarea');
+                    if (firstInput) firstInput.focus();
+                }, 100);
+            }
+        });
+    }
+    
+    // Form submission handling for modal forms
+    const modalForms = [
+        { id: 'consultationModalForm', subject: 'Consultation Request' },
+        { id: 'homeCareModalForm', subject: 'Home Care Service Request' },
+        { id: 'medicalTourismModalForm', subject: 'Medical Tourism Information Request' }
+    ];
+    
+    modalForms.forEach(modalForm => {
+        const form = document.getElementById(modalForm.id);
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data for email body construction
+                const formData = new FormData(this);
+                let emailBody = `${modalForm.subject}:\n\n`;
+                
+                // Add form fields to email body
+                for (let [name, value] of formData.entries()) {
+                    emailBody += `${name}: ${value}\n";
+                }
+                
+                // Update UI to show loading state
+                const submitBtn = this.querySelector('.submit-btn');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Submitting...';
+                submitBtn.disabled = true;
+                
+                // Use mailto link to open email client
+                const mailtoLink = `mailto:info@hopewellhealth.com?subject=${encodeURIComponent(modalForm.subject)}&body=${encodeURIComponent(emailBody)}`;
+                window.location.href = mailtoLink;
+                
+                // Reset form after delay
+                setTimeout(() => {
+                    submitBtn.textContent = 'Request Sent!';
+                    setTimeout(() => {
+                        // Reset form
+                        form.reset();
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                        
+                        // Close the modal
+                        const modal = form.closest('.modal-container');
+                        if (modal) {
+                            modal.style.display = 'none';
+                            document.body.style.overflow = ''; // Restore scrolling
+                        }
+                    }, 2000);
+                    
+                    // Show success message
+                    alert('Thank you for your request. An email has been prepared in your default email client. Please review and send it to complete your request.');
+                }, 1000);
+            });
+        }
+    });
+});

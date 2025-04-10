@@ -44,14 +44,173 @@
             <li><a href="#contact" class="contact-btn">Contact</a></li>
         </ul>
     </nav>
-
+    
+    <!-- Global Modal Styles -->
+    <style>
+        /* Modal Styles */
+        .modal-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        .modal-content {
+            background-color: #fff;
+            border-radius: 12px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            overflow-y: auto;
+            animation: modalFadeIn 0.3s;
+            position: relative;
+        }
+        
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes modalFadeOut {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            background-color: #f8fafe;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+        
+        .modal-header h3 {
+            margin: 0;
+            color: #3498db;
+            font-size: 1.4rem;
+        }
+        
+        .modal-body {
+            padding: 20px;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #555;
+            transition: color 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: #e74c3c;
+        }
+        
+        .modal-footer {
+            padding: 15px 20px;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        
+        /* Modal Form Styles */
+        .modal-form .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .modal-form .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .modal-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .modal-form input,
+        .modal-form select,
+        .modal-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+        
+        .modal-form input:focus,
+        .modal-form select:focus,
+        .modal-form textarea:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+            outline: none;
+        }
+        
+        .modal-form button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .modal-form button:hover {
+            background: #2980b9;
+        }
+        
+        @media (max-width: 768px) {
+            .modal-form .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 0 auto;
+            }
+        }
+    </style>
+    
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content animate-fade-in">
             <h1 class="animate-slide-up">Welcome to Hopewell Health Services</h1>
             <p class="animate-slide-up delay-1">Your trusted partner in healthcare excellence</p>
             <div class="hero-buttons">
-                <a href="#consultation" class="cta-button animate-slide-up delay-2">Request Consultation</a>
+                <a href="#" class="cta-button animate-slide-up delay-2 consultation-btn" data-service="general">Request Consultation</a>
                 <a href="#mental-health" class="cta-button secondary animate-slide-up delay-2">Mental Health Support</a>
                 <a href="#" class="safe-space-button animate-slide-up delay-2" id="openSafeSpaceModal"><i class="fas fa-heart"></i>Safe Space</a>
             </div>
@@ -66,50 +225,134 @@
                 <i class="fas fa-heartbeat"></i>
                 <h3>Cardiology</h3>
                 <p>Comprehensive heart care and treatment</p>
+                <a href="#" class="service-btn consultation-btn" data-service="cardiology">Book Consultation</a>
             </div>
             <div class="service-card animate-card delay-1">
                 <i class="fas fa-brain"></i>
                 <h3>Neurology</h3>
                 <p>Expert neurological care and diagnostics</p>
+                <a href="#" class="service-btn consultation-btn" data-service="neurology">Book Consultation</a>
             </div>
             <div class="service-card animate-card delay-2">
                 <i class="fas fa-bone"></i>
                 <h3>Orthopedics</h3>
                 <p>Advanced bone and joint treatments</p>
+                <a href="#" class="service-btn consultation-btn" data-service="orthopedics">Book Consultation</a>
             </div>
             <div class="service-card animate-card delay-3">
                 <i class="fas fa-ambulance"></i>
                 <h3>Ambulance Services</h3>
                 <p>24/7 emergency medical transportation</p>
+                <a href="#" class="service-btn consultation-btn" data-service="emergency">Request Service</a>
             </div>
             <div class="service-card animate-card delay-4">
                 <i class="fas fa-baby"></i>
                 <h3>Obstetrics & Gynecology</h3>
                 <p>Comprehensive women's health and maternity care</p>
+                <a href="#" class="service-btn consultation-btn" data-service="obgyn">Book Consultation</a>
             </div>
             <div class="service-card animate-card delay-5">
                 <i class="fas fa-stethoscope"></i>
                 <h3>General Medicine</h3>
                 <p>Comprehensive primary healthcare</p>
+                <a href="#" class="service-btn consultation-btn" data-service="general">Book Consultation</a>
             </div>
             <div class="service-card animate-card delay-6">
                 <i class="fas fa-hospital"></i>
                 <h3>Inpatient & Outpatient Management</h3>
                 <p>Comprehensive care for both inpatients and outpatients.</p>
+                <a href="#" class="service-btn consultation-btn" data-service="general">Book Consultation</a>
             </div>
             <div class="service-card animate-card delay-7">
                 <i class="fas fa-external-link-alt"></i>
                 <h3>Referrals</h3>
                 <p>Seamless referral services to specialized healthcare providers.</p>
+                <a href="#" class="service-btn consultation-btn" data-service="general">Request Referral</a>
             </div>
             <div class="service-card animate-card delay-8">
                 <i class="fas fa-globe-americas"></i>
                 <h3>Medical Tourism</h3>
                 <p>Access to world-class healthcare through our international hospital partnerships.</p>
+                <a href="#" class="service-btn tourism-btn" data-service="tourism">Explore Options</a>
             </div>
         </div>
     </section>
 
+    <style>
+        .services {
+            padding: 60px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .service-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .service-card i {
+            font-size: 50px;
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .service-card p {
+            color: #666;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .service-btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            margin-top: auto;
+        }
+        
+        .service-btn:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+    </style>
+    
     <!-- Mental Health Section -->
     <section id="mental-health" class="mental-health">
         <div class="mental-health-container">
@@ -833,191 +1076,411 @@
 
     <!-- Consultation Form -->
     <section id="consultation" class="consultation">
-        <div class="consultation-container">
-            <div class="consultation-description">
-                <h2 class="section-title">Request a Consultation</h2>
-                <p class="section-description">Fill out the form below to schedule a consultation with our healthcare experts. We are here to assist you with personalized care and attention.</p>
-                <div class="consultation-image">
-                    <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Doctor consulting with patient" class="animate-card">
+        <div class="consultation-wrapper">
+            <h2 class="section-title animate-fade-in">Request a Consultation</h2>
+            <p class="section-subtitle animate-fade-in">Schedule a consultation with our healthcare experts for personalized care and attention</p>
+            
+            <div class="consultation-container">
+                <div class="consultation-description">
+                    <div class="consultation-image">
+                        <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Doctor consulting with patient" class="animate-card">
+                    </div>
+                    <div class="consultation-features">
+                        <div class="feature-item">
+                            <i class="fas fa-user-md"></i>
+                            <h4>Expert Specialists</h4>
+                            <p>Consult with our experienced medical professionals</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-calendar-check"></i>
+                            <h4>Flexible Scheduling</h4>
+                            <p>Book appointments at your convenience</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-comments"></i>
+                            <h4>Personalized Care</h4>
+                            <p>Receive tailored treatment plans for your needs</p>
+                        </div>
+                    </div>
                 </div>
+                
+                <form id="consultationForm" class="consultation-form" enctype="multipart/form-data">
+                    <div class="form-header">
+                        <i class="fas fa-clipboard-list"></i>
+                        <h3>Your Information</h3>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-birthday-cake"></i>
+                                <input type="number" id="age" name="age" min="0" max="120" placeholder="Enter your age" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-phone"></i>
+                                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-header">
+                        <i class="fas fa-stethoscope"></i>
+                        <h3>Consultation Details</h3>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="department">Department</label>
+                            <div class="select-with-icon">
+                                <i class="fas fa-hospital"></i>
+                                <select id="department" name="department" required>
+                                    <option value="">Select Department</option>
+                                    <option value="cardiology">Cardiology</option>
+                                    <option value="neurology">Neurology</option>
+                                    <option value="orthopedics">Orthopedics</option>
+                                    <option value="obgyn">Obstetrics & Gynecology</option>
+                                    <option value="general">General Medicine</option>
+                                    <option value="mental-health">Mental Health</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="urgency">Urgency Level</label>
+                            <div class="select-with-icon">
+                                <i class="fas fa-exclamation-circle"></i>
+                                <select id="urgency" name="urgency" required>
+                                    <option value="">Select Urgency</option>
+                                    <option value="emergency">Emergency (Within 24 hours)</option>
+                                    <option value="urgent">Urgent (Within 48 hours)</option>
+                                    <option value="routine">Routine (Within 1 week)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Additional Information</label>
+                        <div class="input-with-icon textarea">
+                            <i class="fas fa-comment-medical"></i>
+                            <textarea id="message" name="message" rows="4" placeholder="Please share any specific concerns or preferences"></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Payment Section -->
+                    <div class="payment-section">
+                        <div class="payment-header">
+                            <div>
+                                <h4>Payment Required - KSh 500</h4>
+                                <p>A non-refundable fee is required to process your consultation request.</p>
+                            </div>
+                            <span class="payment-badge">Required</span>
+                        </div>
+                        
+                        <div class="payment-options">
+                            <div class="payment-option active" data-method="mpesa">
+                                <i class="fas fa-mobile-alt"></i>
+                                <div>M-Pesa</div>
+                            </div>
+                            <div class="payment-option" data-method="card">
+                                <i class="fas fa-credit-card"></i>
+                                <div>Card</div>
+                            </div>
+                            <div class="payment-option" data-method="bank">
+                                <i class="fas fa-university"></i>
+                                <div>Bank Transfer</div>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-verification">
+                            <label for="paymentReference">M-Pesa Transaction ID / Payment Reference</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-hashtag"></i>
+                                <input type="text" id="paymentReference" name="paymentReference" placeholder="Enter your payment reference number" required>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-instructions">
+                            <p><strong>M-Pesa Instructions:</strong> Send KSh 500 to Till No: 7636095 (Hopewell Health)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row files-section">
+                        <div class="form-group">
+                            <label for="medicalDocuments">
+                                <i class="fas fa-file-medical"></i> Medical Documents
+                            </label>
+                            <input type="file" id="medicalDocuments" name="medicalDocuments" accept=".pdf,.doc,.docx" multiple>
+                            <div class="file-info">Upload PDF, DOC, or DOCX files</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="medicalImages">
+                                <i class="fas fa-image"></i> Medical Images
+                            </label>
+                            <input type="file" id="medicalImages" name="medicalImages" accept="image/*" multiple>
+                            <div class="file-info">Upload JPG or PNG files</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group privacy-notice">
+                        <input type="checkbox" id="privacy" name="privacy" required>
+                        <label for="privacy">I understand that my information will be kept confidential and secure</label>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Submit Request
+                    </button>
+                </form>
             </div>
-            <form id="consultationForm" class="consultation-form" enctype="multipart/form-data">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="age">Age</label>
-                        <input type="number" id="age" name="age" min="0" max="120" placeholder="Enter your age" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="department">Department</label>
-                        <select id="department" name="department" required>
-                            <option value="">Select Department</option>
-                            <option value="cardiology">Cardiology</option>
-                            <option value="neurology">Neurology</option>
-                            <option value="orthopedics">Orthopedics</option>
-                            <option value="obgyn">Obstetrics & Gynecology</option>
-                            <option value="general">General Medicine</option>
-                            <option value="mental-health">Mental Health</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="urgency">Urgency Level</label>
-                        <select id="urgency" name="urgency" required>
-                            <option value="">Select Urgency</option>
-                            <option value="emergency">Emergency (Within 24 hours)</option>
-                            <option value="urgent">Urgent (Within 48 hours)</option>
-                            <option value="routine">Routine (Within 1 week)</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="message">Additional Information</label>
-                    <textarea id="message" name="message" rows="4" placeholder="Please share any specific concerns or preferences"></textarea>
-                </div>
-                <!-- Payment Section -->
-                <div class="payment-section">
-                    <span class="payment-badge">Required</span>
-                    <h4>Payment Required - KSh 500</h4>
-                    <p>A non-refundable fee of KSh 500 is required to process your consultation request.</p>
-                    
-                    <div class="payment-options">
-                        <div class="payment-option" data-method="mpesa">
-                            <i class="fas fa-mobile-alt"></i>
-                            <div>M-Pesa</div>
-                        </div>
-                        <div class="payment-option" data-method="card">
-                            <i class="fas fa-credit-card"></i>
-                            <div>Card</div>
-                        </div>
-                        <div class="payment-option" data-method="bank">
-                            <i class="fas fa-university"></i>
-                            <div>Bank Transfer</div>
-                        </div>
-                    </div>
-                    
-                    <div class="payment-verification">
-                        <label for="paymentReference">M-Pesa Transaction ID / Payment Reference</label>
-                        <input type="text" id="paymentReference" name="paymentReference" placeholder="Enter your payment reference number" required>
-                    </div>
-                    
-                    <div class="payment-instructions">
-                        <p><strong>M-Pesa Instructions:</strong> Send KSh 500 to Till No: 7636095 (Hopewell Health)</p>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="medicalDocuments">Medical Documents (PDF, DOC, DOCX)</label>
-                        <input type="file" id="medicalDocuments" name="medicalDocuments" accept=".pdf,.doc,.docx" multiple>
-                    </div>
-                    <div class="form-group">
-                        <label for="medicalImages">Medical Images (JPG, PNG)</label>
-                        <input type="file" id="medicalImages" name="medicalImages" accept="image/*" multiple>
-                    </div>
-                </div>
-                <div class="form-group privacy-notice">
-                    <input type="checkbox" id="privacy" name="privacy" required>
-                    <label for="privacy">I understand that my information will be kept confidential and secure</label>
-                </div>
-                <button type="submit" class="submit-btn">Submit Request</button>
-            </form>
         </div>
     </section>
 
     <style>
-        /* Consultation Section Styling */
+        /* Enhanced Consultation Section Styling */
+        .consultation {
+            padding: 80px 0;
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            position: relative;
+        }
+        
+        .consultation-wrapper {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #6c757d;
+            margin: -20px auto 40px;
+            max-width: 800px;
+        }
+        
         .consultation-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            gap: 40px;
             align-items: flex-start;
-            gap: 20px;
         }
 
         .consultation-description {
-            flex: 1 1 45%;
-            max-width: 45%;
+            flex: 1 1 450px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .consultation-image {
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            max-height: 400px;
+        }
+
+        .consultation-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+            display: block;
+        }
+        
+        .consultation-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .consultation-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .feature-item {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            text-align: center;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            border-bottom: 3px solid #3498db;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-item i {
+            font-size: 28px;
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+        
+        .feature-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #343a40;
+        }
+        
+        .feature-item p {
+            font-size: 0.9rem;
+            color: #6c757d;
         }
 
         .consultation-form {
-            flex: 1 1 45%;
-            max-width: 45%;
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            flex: 1 1 550px;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .form-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .form-header i {
+            font-size: 24px;
+            color: #3498db;
+            margin-right: 15px;
+        }
+        
+        .form-header h3 {
+            font-size: 1.3rem;
+            color: #343a40;
+            margin: 0;
         }
 
         .consultation-form .form-row {
             display: flex;
-            gap: 10px;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
         }
 
         .consultation-form .form-group {
             flex: 1;
+            min-width: 200px;
         }
 
-        .consultation-form textarea {
-            resize: none;
-        }
-
-        .consultation-form button {
-            width: 100%;
-            padding: 10px;
-            background: #007BFF;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .consultation-form button:hover {
-            background: #0056b3;
+        .consultation-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #495057;
+            font-size: 0.95rem;
         }
         
-        /* Payment Section Styling */
+        .input-with-icon,
+        .select-with-icon {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .input-with-icon i,
+        .select-with-icon i {
+            position: absolute;
+            left: 12px;
+            color: #6c757d;
+            font-size: 16px;
+            z-index: 1;
+        }
+        
+        .input-with-icon input,
+        .input-with-icon textarea,
+        .select-with-icon select {
+            width: 100%;
+            padding: 12px 15px 12px 40px;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background-color: #f8f9fa;
+            color: #495057;
+        }
+        
+        .input-with-icon textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .input-with-icon input:focus,
+        .input-with-icon textarea:focus,
+        .select-with-icon select:focus {
+            border-color: #3498db;
+            background-color: #fff;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+            outline: none;
+        }
+        
+        .input-with-icon.textarea i {
+            top: 12px;
+        }
+        
+        /* Payment Section Enhancement */
         .payment-section {
             background-color: #f0f8ff;
-            border: 1px solid #add8e6;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 8px;
+            border: 1px solid #d1e3fa;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 10px;
             position: relative;
         }
         
-        .payment-section h4 {
-            margin-top: 0;
-            color: #3498db;
-            font-size: 1.1rem;
+        .payment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
         }
         
-        .payment-section p {
-            margin-bottom: 10px;
-            color: #333;
+        .payment-header h4 {
+            margin: 0 0 5px 0;
+            color: #3498db;
+            font-size: 1.2rem;
+        }
+        
+        .payment-header p {
+            margin: 0;
+            color: #6c757d;
+            font-size: 0.9rem;
         }
         
         .payment-badge {
-            position: absolute;
-            top: -10px;
-            right: -10px;
             background: #e74c3c;
             color: white;
-            padding: 5px 10px;
+            padding: 5px 12px;
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: bold;
@@ -1029,60 +1492,214 @@
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         
         .payment-option {
             flex: 1;
-            min-width: 140px;
+            min-width: 120px;
             background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            padding: 10px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px 10px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
         }
         
         .payment-option:hover {
             border-color: #3498db;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
-        .payment-option.selected {
-            border: 2px solid #3498db;
+        .payment-option.active {
+            border-color: #3498db;
             background-color: #ebf7ff;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.15);
         }
         
         .payment-option i {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
+            font-size: 24px;
             color: #3498db;
         }
         
         .payment-verification {
-            margin-top: 10px;
-        }
-        
-        .payment-verification label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-        
-        .payment-verification input {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            margin-top: 15px;
         }
         
         .payment-instructions {
-            margin-top: 10px;
+            margin-top: 15px;
             font-size: 0.9rem;
-            color: #555;
+            color: #6c757d;
+            background: #e9f7fe;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        
+        /* File Upload Styling */
+        .files-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+        
+        .files-section .form-group {
+            position: relative;
+        }
+        
+        .files-section label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .files-section i {
+            color: #3498db;
+        }
+        
+        .file-info {
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+        
+        /* Privacy Notice and Submit Button */
+        .privacy-notice {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 25px 0;
+        }
+        
+        .privacy-notice input {
+            width: 18px;
+            height: 18px;
+        }
+        
+        .privacy-notice label {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #495057;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: #3498db;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .submit-btn:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .consultation-container {
+                flex-direction: column;
+            }
+            
+            .consultation-description,
+            .consultation-form {
+                flex: 1 1 100%;
+            }
+            
+            .consultation-description {
+                order: 2;
+            }
+            
+            .consultation-form {
+                order: 1;
+            }
+            
+            .consultation {
+                padding: 60px 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .consultation-form {
+                padding: 30px 20px;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .payment-options {
+                flex-direction: column;
+            }
+            
+            .payment-option {
+                flex-direction: row;
+                justify-content: center;
+            }
+            
+            .submit-btn {
+                padding: 12px;
+                font-size: 1rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
+            }
         }
     </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Payment option selection
+            const paymentOptions = document.querySelectorAll('.payment-option');
+            paymentOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove active class from all options
+                    paymentOptions.forEach(opt => opt.classList.remove('active'));
+                    // Add active class to clicked option
+                    this.classList.add('active');
+                    
+                    // Update payment reference label based on selection
+                    const method = this.dataset.method;
+                    const referenceLabel = document.querySelector('label[for="paymentReference"]');
+                    const referenceInput = document.getElementById('paymentReference');
+                    
+                    if(method === 'mpesa') {
+                        referenceLabel.textContent = 'M-Pesa Transaction ID';
+                        referenceInput.placeholder = 'Enter your M-Pesa transaction ID';
+                    } else if(method === 'card') {
+                        referenceLabel.textContent = 'Card Payment Reference';
+                        referenceInput.placeholder = 'Enter card payment reference';
+                    } else if(method === 'bank') {
+                        referenceLabel.textContent = 'Bank Transfer Reference';
+                        referenceInput.placeholder = 'Enter bank transfer reference';
+                    }
+                });
+            });
+        });
+    </script>
 
     <!-- About Us Section -->
     <section id="about" class="about">
@@ -1590,7 +2207,7 @@
     </a>
 
     <!-- Modal Structure -->
-    <div id="safeSpaceModal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
+    <div id="safeSpaceModal" class="modal-container" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
         <div class="modal-content">
             <div class="modal-header">
                 <h2 id="modalTitle">Mental Health Safe Space</h2>
@@ -1700,5 +2317,683 @@
             </div>
         </div>
     </div>
+
+    <!-- Custom script for Safe Space Modal -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Safe Space Modal functionality
+            const openSafeSpaceBtn = document.getElementById('openSafeSpaceModal');
+            const safeSpaceModal = document.getElementById('safeSpaceModal');
+            const closeButtons = safeSpaceModal.querySelectorAll('.close-modal');
+            
+            // Make sure modal has initial display: none
+            safeSpaceModal.style.display = 'none';
+            
+            // Open modal function
+            function openSafeSpaceModal() {
+                safeSpaceModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+                safeSpaceModal.setAttribute('aria-hidden', 'false');
+                
+                // Set minimum date for date picker to today
+                const dateInput = document.getElementById('preferredDate');
+                if (dateInput) {
+                    const today = new Date().toISOString().split('T')[0];
+                    dateInput.min = today;
+                }
+                
+                // Focus first form element for accessibility
+                const firstInput = safeSpaceModal.querySelector('input, select, textarea');
+                if (firstInput) firstInput.focus();
+            }
+            
+            // Close modal function
+            function closeSafeSpaceModal() {
+                safeSpaceModal.style.display = 'none';
+                document.body.style.overflow = ''; // Restore scrolling
+                safeSpaceModal.setAttribute('aria-hidden', 'true');
+                
+                // Reset form when closing
+                const form = document.getElementById('therapyBookingForm');
+                if (form) form.reset();
+            }
+            
+            // Event listeners for opening modal
+            if (openSafeSpaceBtn) {
+                openSafeSpaceBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openSafeSpaceModal();
+                });
+            }
+            
+            // Event listeners for closing modal
+            closeButtons.forEach(button => {
+                button.addEventListener('click', closeSafeSpaceModal);
+            });
+            
+            // Close when clicking outside modal content
+            safeSpaceModal.addEventListener('click', function(e) {
+                if (e.target === safeSpaceModal) {
+                    closeSafeSpaceModal();
+                }
+            });
+            
+            // Close on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && safeSpaceModal.style.display === 'flex') {
+                    closeSafeSpaceModal();
+                }
+            });
+            
+            // Setup other safe space links in the page
+            const safeSpaceLinks = document.querySelectorAll('.safe-space-button, a[href="#mental-health"]');
+            safeSpaceLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openSafeSpaceModal();
+                });
+            });
+        });
+    </script>
+
+    <!-- Services Modal -->
+    <div id="servicesModal" class="modal-container" aria-hidden="true" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="serviceModalTitle">Service Details</h3>
+                <button type="button" class="close-modal" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body" id="serviceModalBody">
+                <!-- Content will be dynamically inserted -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Modal functionality
+            const modals = document.querySelectorAll('.modal-container');
+            const modalCloseButtons = document.querySelectorAll('.close-modal');
+            
+            // Function to open modal
+            function openModal(modalId) {
+                const modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                    modal.setAttribute('aria-hidden', 'false');
+                    
+                    // Add focus to the first focusable element
+                    const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                    if (focusableElements.length > 0) {
+                        focusableElements[0].focus();
+                    }
+                }
+            }
+            
+            // Function to close modal
+            function closeModal(modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = ''; // Re-enable scrolling
+                modal.setAttribute('aria-hidden', 'true');
+            }
+            
+            // Close modal when clicking outside content
+            modals.forEach(modal => {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        closeModal(modal);
+                    }
+                });
+            });
+            
+            // Close modal when clicking close button
+            modalCloseButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const modal = this.closest('.modal-container');
+                    closeModal(modal);
+                });
+            });
+            
+            // Safe Space Modal opener
+            const safeSpaceLink = document.querySelector('a[href="#mental-health"]');
+            if (safeSpaceLink) {
+                safeSpaceLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openModal('safeSpaceModal');
+                });
+            }
+            
+            // Add "Book a Session" button to Mental Health section
+            const mentalHealthSection = document.querySelector('.mental-health-features');
+            if (mentalHealthSection) {
+                const bookButton = document.createElement('a');
+                bookButton.href = '#';
+                bookButton.className = 'mental-health-cta';
+                bookButton.textContent = 'Book a Safe Space Session';
+                bookButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openModal('safeSpaceModal');
+                });
+                mentalHealthSection.appendChild(bookButton);
+            }
+            
+            // Services Modal functionality
+            const serviceCards = document.querySelectorAll('.service-card');
+            
+            // Sample service data (you can replace this with actual data)
+            const serviceDetails = {
+                'cardiology': {
+                    title: 'Cardiology Services',
+                    description: 'Our cardiology department provides comprehensive heart care services including diagnostic tests, treatment plans, and preventive care.',
+                    features: [
+                        'ECG and Echo Tests',
+                        'Heart Disease Management',
+                        'Cardiac Rehabilitation',
+                        'Preventive Cardiology'
+                    ],
+                    specialists: ['Dr. James Wilson', 'Dr. Sarah Johnson']
+                },
+                'neurology': {
+                    title: 'Neurology Services',
+                    description: 'Our neurology specialists diagnose and treat disorders of the nervous system, including the brain, spinal cord, and nerves.',
+                    features: [
+                        'Neurological Examinations',
+                        'EEG Testing',
+                        'Movement Disorder Treatment',
+                        'Headache Management'
+                    ],
+                    specialists: ['Dr. Michael Chen', 'Dr. Emma Rodriguez']
+                },
+                'mental-health': {
+                    title: 'Mental Health Services',
+                    description: 'Our mental health services provide support for a range of psychological and emotional challenges through therapy, counseling, and psychiatric care.',
+                    features: [
+                        'Individual Therapy',
+                        'Group Counseling',
+                        'Psychiatric Evaluation',
+                        'Stress Management'
+                    ],
+                    specialists: ['Dr. Lisa Park', 'Dr. Robert Nelson']
+                }
+            };
+            
+            // Add click event to service cards
+            serviceCards.forEach((card, index) => {
+                // Add service details to cards
+                if (card.innerHTML.trim() === '') {
+                    const serviceTypes = ['cardiology', 'neurology', 'orthopedics', 'mental-health', 'pediatrics', 'dermatology', 'ophthalmology', 'dental', 'general'];
+                    const serviceType = serviceTypes[index % serviceTypes.length];
+                    const icons = ['fa-heartbeat', 'fa-brain', 'fa-bone', 'fa-comment-medical', 'fa-baby', 'fa-allergies', 'fa-eye', 'fa-tooth', 'fa-stethoscope'];
+                    
+                    card.innerHTML = `
+                        <i class="fas ${icons[index % icons.length]}"></i>
+                        <h3>${serviceType.charAt(0).toUpperCase() + serviceType.slice(1)}</h3>
+                        <p>Comprehensive ${serviceType} care for patients of all ages.</p>
+                        <a href="#" class="service-btn" data-service="${serviceType}">Learn More</a>
+                    `;
+                }
+                
+                // Find service button in the card
+                const serviceBtn = card.querySelector('.service-btn');
+                if (serviceBtn) {
+                    serviceBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const serviceType = this.getAttribute('data-service');
+                        const details = serviceDetails[serviceType] || {
+                            title: `${serviceType.charAt(0).toUpperCase() + serviceType.slice(1)} Services`,
+                            description: `Our ${serviceType} department offers specialized care and treatment options.`,
+                            features: ['Comprehensive Examinations', 'Treatment Plans', 'Follow-up Care'],
+                            specialists: ['Specialist Doctors Available']
+                        };
+                        
+                        // Update modal content
+                        document.getElementById('serviceModalTitle').textContent = details.title;
+                        
+                        // Create content for service modal
+                        const modalContent = `
+                            <div class="service-detail-container">
+                                <p class="service-description">${details.description}</p>
+                                
+                                <div class="service-features-section">
+                                    <h4>Our Services Include:</h4>
+                                    <ul class="service-features-list">
+                                        ${details.features.map(feature => `<li><i class="fas fa-check-circle"></i> ${feature}</li>`).join('')}
+                                    </ul>
+                                </div>
+                                
+                                <div class="specialists-section">
+                                    <h4>Our Specialists:</h4>
+                                    <div class="specialists-list">
+                                        ${details.specialists.map(specialist => `<div class="specialist"><i class="fas fa-user-md"></i> ${specialist}</div>`).join('')}
+                                    </div>
+                                </div>
+                                
+                                <div class="service-cta-container">
+                                    <a href="#consultation" class="service-consultation-btn" id="scheduleConsultation">Schedule a Consultation</a>
+                                </div>
+                            </div>
+                        `;
+                        
+                        document.getElementById('serviceModalBody').innerHTML = modalContent;
+                        
+                        // Add event listener to consultation button
+                        const consultationBtn = document.getElementById('scheduleConsultation');
+                        if (consultationBtn) {
+                            consultationBtn.addEventListener('click', function() {
+                                closeModal(document.getElementById('servicesModal'));
+                                
+                                // Scroll to consultation section
+                                const consultationSection = document.getElementById('consultation');
+                                if (consultationSection) {
+                                    consultationSection.scrollIntoView({ behavior: 'smooth' });
+                                    
+                                    // Pre-select department if possible
+                                    const departmentSelect = document.getElementById('department');
+                                    if (departmentSelect) {
+                                        const options = Array.from(departmentSelect.options);
+                                        const option = options.find(opt => opt.value === serviceType);
+                                        if (option) {
+                                            departmentSelect.value = serviceType;
+                                        }
+                                    }
+                                }
+                            });
+                        }
+                        
+                        openModal('servicesModal');
+                    });
+                }
+            });
+            
+            // Add custom styles for service modal
+            const style = document.createElement('style');
+            style.textContent = `
+                .service-detail-container {
+                    padding: 10px;
+                }
+                
+                .service-description {
+                    font-size: 1.1rem;
+                    line-height: 1.6;
+                    margin-bottom: 20px;
+                    color: #333;
+                }
+                
+                .service-features-section,
+                .specialists-section {
+                    margin-bottom: 25px;
+                }
+                
+                .service-features-section h4,
+                .specialists-section h4 {
+                    font-size: 1.2rem;
+                    color: #3498db;
+                    margin-bottom: 15px;
+                    border-bottom: 1px solid #eee;
+                    padding-bottom: 8px;
+                }
+                
+                .service-features-list {
+                    list-style: none;
+                    padding: 0;
+                }
+                
+                .service-features-list li {
+                    margin-bottom: 10px;
+                    display: flex;
+                    align-items: center;
+                }
+                
+                .service-features-list li i {
+                    color: #2ecc71;
+                    margin-right: 10px;
+                }
+                
+                .specialists-list {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 15px;
+                }
+                
+                .specialist {
+                    background: #f5f5f5;
+                    padding: 10px 15px;
+                    border-radius: 5px;
+                    display: flex;
+                    align-items: center;
+                    font-weight: 500;
+                }
+                
+                .specialist i {
+                    color: #3498db;
+                    margin-right: 10px;
+                }
+                
+                .service-cta-container {
+                    margin-top: 20px;
+                    text-align: center;
+                }
+                
+                .service-consultation-btn {
+                    display: inline-block;
+                    background: #3498db;
+                    color: white;
+                    padding: 12px 25px;
+                    border-radius: 30px;
+                    text-decoration: none;
+                    font-weight: 600;
+                    transition: all 0.3s;
+                }
+                
+                .service-consultation-btn:hover {
+                    background: #2980b9;
+                    transform: translateY(-3px);
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                }
+                
+                .mental-health-cta {
+                    display: inline-block;
+                    background: #3498db;
+                    color: white;
+                    padding: 12px 25px;
+                    border-radius: 30px;
+                    text-decoration: none;
+                    font-weight: 600;
+                    margin-top: 20px;
+                    transition: all 0.3s;
+                }
+                
+                .mental-health-cta:hover {
+                    background: #2980b9;
+                    transform: translateY(-3px);
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // ESC key to close modal
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    modals.forEach(modal => {
+                        if (modal.style.display === 'flex') {
+                            closeModal(modal);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 </body>
+
+<!-- Form Modals -->
+<!-- Home Care Modal -->
+<div id="homeCareModal" class="modal-container">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Request Home Care Services</h3>
+            <button type="button" class="close-modal" aria-label="Close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form id="homeCareModalForm" class="modal-form" enctype="multipart/form-data">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="homeCareModalName">Full Name</label>
+                        <input type="text" id="homeCareModalName" name="homeCareModalName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="homeCareModalPhone">Phone Number</label>
+                        <input type="tel" id="homeCareModalPhone" name="homeCareModalPhone" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="homeCareModalAddress">Delivery Address</label>
+                    <textarea id="homeCareModalAddress" name="homeCareModalAddress" rows="2" required></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="serviceTypeModal">Service Required</label>
+                        <select id="serviceTypeModal" name="serviceTypeModal" required>
+                            <option value="">Select Service</option>
+                            <option value="lab-test">Laboratory Test</option>
+                            <option value="drug-delivery">Drug Delivery</option>
+                            <option value="both">Both Services</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="preferredTimeModal">Preferred Time</label>
+                        <input type="datetime-local" id="preferredTimeModal" name="preferredTimeModal" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="prescriptionModal">Prescription (if applicable)</label>
+                        <input type="file" id="prescriptionModal" name="prescriptionModal" accept=".pdf,.jpg,.jpeg,.png">
+                    </div>
+                    <div class="form-group">
+                        <label for="labRequestModal">Lab Request Form (if applicable)</label>
+                        <input type="file" id="labRequestModal" name="labRequestModal" accept=".pdf,.jpg,.jpeg,.png">
+                    </div>
+                </div>
+                <!-- Compact Payment Section -->
+                <div class="compact-payment">
+                    <div class="payment-header">
+                        <h4>Payment (KSh 500 fee required)</h4>
+                        <span class="payment-badge">Required</span>
+                    </div>
+                    <div class="payment-options">
+                        <select id="homeCarePaymentMethodModal" name="homeCarePaymentMethodModal">
+                            <option value="mpesa">M-Pesa (Till: 7636095)</option>
+                            <option value="card">Credit/Debit Card</option>
+                            <option value="bank">Bank Transfer</option>
+                        </select>
+                        <input type="text" id="homeCarePaymentReferenceModal" name="homeCarePaymentReferenceModal" placeholder="Transaction ID/Reference" required>
+                    </div>
+                </div>
+                <div class="form-group privacy-notice">
+                    <input type="checkbox" id="homeCarePrivacyModal" name="homeCarePrivacyModal" required>
+                    <label for="homeCarePrivacyModal">I understand that my information will be kept secure</label>
+                </div>
+                <button type="submit" class="submit-btn">Request Service</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Consultation Modal -->
+<div id="consultationModal" class="modal-container">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Request a Consultation</h3>
+            <button type="button" class="close-modal" aria-label="Close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form id="consultationModalForm" class="modal-form" enctype="multipart/form-data">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nameModal">Full Name</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="nameModal" name="nameModal" placeholder="Enter your full name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ageModal">Age</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-birthday-cake"></i>
+                            <input type="number" id="ageModal" name="ageModal" min="0" max="120" placeholder="Enter your age" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="emailModal">Email</label>
+                        <input type="email" id="emailModal" name="emailModal" placeholder="Enter your email address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneModal">Phone Number</label>
+                        <input type="tel" id="phoneModal" name="phoneModal" placeholder="Enter your phone number" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="departmentModal">Department</label>
+                        <select id="departmentModal" name="departmentModal" required>
+                            <option value="">Select Department</option>
+                            <option value="cardiology">Cardiology</option>
+                            <option value="neurology">Neurology</option>
+                            <option value="orthopedics">Orthopedics</option>
+                            <option value="obgyn">Obstetrics & Gynecology</option>
+                            <option value="general">General Medicine</option>
+                            <option value="mental-health">Mental Health</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="urgencyModal">Urgency Level</label>
+                        <select id="urgencyModal" name="urgencyModal" required>
+                            <option value="">Select Urgency</option>
+                            <option value="emergency">Emergency (Within 24 hours)</option>
+                            <option value="urgent">Urgent (Within 48 hours)</option>
+                            <option value="routine">Routine (Within 1 week)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="messageModal">Additional Information</label>
+                    <textarea id="messageModal" name="messageModal" rows="4" placeholder="Please share any specific concerns or preferences"></textarea>
+                </div>
+                <!-- Payment Section -->
+                <div class="payment-section">
+                    <span class="payment-badge">Required</span>
+                    <h4>Payment Required - KSh 500</h4>
+                    <p>A non-refundable fee of KSh 500 is required to process your consultation request.</p>
+                    
+                    <div class="payment-options">
+                        <div class="payment-option selected" data-method="mpesa">
+                            <i class="fas fa-mobile-alt"></i>
+                            <div>M-Pesa</div>
+                        </div>
+                        <div class="payment-option" data-method="card">
+                            <i class="fas fa-credit-card"></i>
+                            <div>Card</div>
+                        </div>
+                        <div class="payment-option" data-method="bank">
+                            <i class="fas fa-university"></i>
+                            <div>Bank Transfer</div>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-verification">
+                        <label for="paymentReferenceModal">M-Pesa Transaction ID / Payment Reference</label>
+                        <input type="text" id="paymentReferenceModal" name="paymentReferenceModal" placeholder="Enter your payment reference number" required>
+                    </div>
+                    
+                    <div class="payment-instructions">
+                        <p><strong>M-Pesa Instructions:</strong> Send KSh 500 to Till No: 7636095 (Hopewell Health)</p>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="medicalDocumentsModal">Medical Documents (PDF, DOC, DOCX)</label>
+                        <input type="file" id="medicalDocumentsModal" name="medicalDocumentsModal" accept=".pdf,.doc,.docx" multiple>
+                    </div>
+                    <div class="form-group">
+                        <label for="medicalImagesModal">Medical Images (JPG, PNG)</label>
+                        <input type="file" id="medicalImagesModal" name="medicalImagesModal" accept="image/*" multiple>
+                    </div>
+                </div>
+                <div class="form-group privacy-notice">
+                    <input type="checkbox" id="privacyModal" name="privacyModal" required>
+                    <label for="privacyModal">I understand that my information will be kept confidential and secure</label>
+                </div>
+                <button type="submit" class="submit-btn">Submit Request</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Medical Tourism Modal -->
+<div id="medicalTourismModal" class="modal-container">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Request Medical Tourism Information</h3>
+            <button type="button" class="close-modal" aria-label="Close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form id="medicalTourismModalForm" class="modal-form">
+                <div class="form-group">
+                    <label for="tourismNameModal">Full Name</label>
+                    <input type="text" id="tourismNameModal" name="tourismNameModal" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="tourismEmailModal">Email</label>
+                        <input type="email" id="tourismEmailModal" name="tourismEmailModal" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tourismPhoneModal">Phone Number</label>
+                        <input type="tel" id="tourismPhoneModal" name="tourismPhoneModal" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="treatmentTypeModal">Treatment Interest</label>
+                    <select id="treatmentTypeModal" name="treatmentTypeModal" required>
+                        <option value="">Select Treatment Type</option>
+                        <option value="cardiology">Cardiology</option>
+                        <option value="orthopedic">Orthopedic Surgery</option>
+                        <option value="oncology">Oncology</option>
+                        <option value="neurology">Neurology</option>
+                        <option value="cosmetic">Cosmetic Surgery</option>
+                        <option value="dental">Dental Procedures</option>
+                        <option value="other">Other (Please Specify)</option>
+                    </select>
+                </div>
+                <div class="form-group" id="otherTreatmentFieldModal" style="display: none;">
+                    <label for="otherTreatmentModal">Please Specify Treatment</label>
+                    <input type="text" id="otherTreatmentModal" name="otherTreatmentModal">
+                </div>
+                <div class="form-group">
+                    <label for="tourismMessageModal">Additional Information</label>
+                    <textarea id="tourismMessageModal" name="tourismMessageModal" rows="3" placeholder="Any specific needs or questions about medical tourism"></textarea>
+                </div>
+                <!-- Payment Section -->
+                <div class="payment-section">
+                    <span class="payment-badge">Required</span>
+                    <h4>Payment Required - KSh 500</h4>
+                    <p>A non-refundable fee of KSh 500 is required to process your medical tourism information request.</p>
+                    
+                    <div class="payment-options">
+                        <div class="payment-option selected" data-method="mpesa">
+                            <i class="fas fa-mobile-alt"></i>
+                            <div>M-Pesa</div>
+                        </div>
+                        <div class="payment-option" data-method="card">
+                            <i class="fas fa-credit-card"></i>
+                            <div>Card</div>
+                        </div>
+                        <div class="payment-option" data-method="bank">
+                            <i class="fas fa-university"></i>
+                            <div>Bank Transfer</div>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-verification">
+                        <label for="tourismPaymentReferenceModal">M-Pesa Transaction ID / Payment Reference</label>
+                        <input type="text" id="tourismPaymentReferenceModal" name="tourismPaymentReferenceModal" placeholder="Enter your payment reference number" required>
+                    </div>
+                    
+                    <div class="payment-instructions">
+                        <p><strong>M-Pesa Instructions:</strong> Send KSh 500 to Till No: 7636095 (Hopewell Health)</p>
+                    </div>
+                </div>
+                <div class="form-group privacy-notice">
+                    <input type="checkbox" id="tourismPrivacyModal" name="tourismPrivacyModal" required>
+                    <label for="tourismPrivacyModal">I understand that my information will be kept confidential and secure</label>
+                </div>
+                <button type="submit" class="submit-btn">Request Information</button>
+            </form>
+        </div>
+    </div>
+</div>
 </html>
