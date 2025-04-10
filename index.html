@@ -1875,859 +1875,990 @@
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <h2 class="section-title animate-fade-in">Contact Us</h2>
-        <div class="contact-container animate-slide-up">
+        <h2 class="section-title animate-fade-in">Get In Touch</h2>
+        <p class="contact-subtitle animate-fade-in">We're here to help with any questions or concerns you may have</p>
+        
+        <div class="contact-container">
             <div class="contact-info">
-                <div class="contact-item animate-bounce">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <p>123 Healthcare Avenue, Medical District</p>
+                <div class="contact-card animate-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Our Location</h3>
+                        <p>123 Healthcare Avenue, Medical District</p>
+                    </div>
                 </div>
-                <div class="contact-item animate-bounce">
-                    <i class="fas fa-phone"></i>
-                    <p><a href="tel:+254796780345">+254796780345</a></p>
+                
+                <div class="contact-card animate-card delay-1">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Phone Number</h3>
+                        <p><a href="tel:+254796780345">+254 796 780 345</a></p>
+                    </div>
                 </div>
-                <div class="contact-item animate-bounce">
-                    <i class="fas fa-envelope"></i>
-                    <p><a href="mailto:info@hopewellhealth.com">info@hopewellhealth.com</a></p>
+                
+                <div class="contact-card animate-card delay-2">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Email Address</h3>
+                        <p><a href="mailto:info@hopewellhealth.com">info@hopewellhealth.com</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-card animate-card delay-3">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Opening Hours</h3>
+                        <p>Monday - Friday: 8:00 AM - 8:00 PM</p>
+                        <p>Saturday: 9:00 AM - 5:00 PM</p>
+                        <p>Sunday: 10:00 AM - 2:00 PM</p>
+                    </div>
+                </div>
+                
+                <div class="contact-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
                 </div>
             </div>
-            <div class="contact-form">
-                <form id="contactForm" class="animate-fade-in">
-                    <div class="form-group">
-                        <label for="contactName">Name</label>
-                        <input type="text" id="contactName" name="contactName" required>
+            
+            <div class="contact-form-wrapper">
+                <form id="contactForm" class="contact-form animate-card">
+                    <h3>Send Us a Message</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contactName">Your Name</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="contactName" name="contactName" placeholder="Enter your name" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactEmail">Your Email</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="contactEmail" name="contactEmail" placeholder="Enter your email" required>
+                            </div>
+                        </div>
                     </div>
+                    
                     <div class="form-group">
-                        <label for="contactEmail">Email</label>
-                        <input type="email" id="contactEmail" name="contactEmail" required>
+                        <label for="contactSubject">Subject</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-tag"></i>
+                            <input type="text" id="contactSubject" name="contactSubject" placeholder="What is this regarding?" required>
+                        </div>
                     </div>
+                    
                     <div class="form-group">
-                        <label for="contactMessage">Message</label>
-                        <textarea id="contactMessage" name="contactMessage" rows="4" required></textarea>
+                        <label for="contactMessage">Your Message</label>
+                        <div class="input-with-icon textarea">
+                            <i class="fas fa-comment-alt"></i>
+                            <textarea id="contactMessage" name="contactMessage" rows="4" placeholder="How can we help you?" required></textarea>
+                        </div>
                     </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
+                    
+                    <div class="form-group privacy-check">
+                        <input type="checkbox" id="contactPrivacy" name="contactPrivacy" required>
+                        <label for="contactPrivacy">I agree that my data will be processed according to privacy policy</label>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
                 </form>
+            </div>
+        </div>
+        
+        <div class="map-container animate-fade-in">
+            <h3>Find Us on the Map</h3>
+            <div class="google-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.818174553809!2d36.8225813!3d-1.2857122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11155d292573%3A0x9ae692ff2ccbe0!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2sus!4v1649079913321!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map showing Hopewell Health location"></iframe>
             </div>
         </div>
     </section>
 
     <style>
+        /* Enhanced Contact Section Styling */
         .contact {
-            background: #f4f4f4;
-            padding: 40px 20px;
+            padding: 80px 0;
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            position: relative;
+        }
+        
+        .contact-subtitle {
             text-align: center;
+            font-size: 1.2rem;
+            color: #6c757d;
+            margin: -20px auto 40px;
+            max-width: 800px;
         }
         
         .contact-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 20px;
+            gap: 40px;
+            max-width: 1300px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
         }
         
         .contact-info {
-            flex: 1 1 45%;
-            max-width: 45%;
+            flex: 1 1 500px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
         }
         
-        .contact-item {
-            margin: 10px 0;
-            font-size: 1.2rem;
+        .contact-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            transition: all 0.3s ease;
         }
         
-        .contact-item i {
-            margin-right: 10px;
-            color: #007BFF;
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
         }
         
-        .contact-item a {
-            color: #333;
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: #3498db;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .contact-icon i {
+            color: white;
+            font-size: 20px;
+        }
+        
+        .contact-details h3 {
+            font-size: 1.1rem;
+            color: #343a40;
+            margin: 0 0 8px;
+        }
+        
+        .contact-details p {
+            margin: 0 0 5px;
+            color: #6c757d;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .contact-details a {
+            color: #6c757d;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.3s;
         }
         
-        .contact-item a:hover {
-            color: #007BFF;
+        .contact-details a:hover {
+            color: #3498db;
+        }
+        
+        .contact-social {
+            grid-column: 1 / -1;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            margin-top: 10px;
+        }
+        
+        .contact-social h3 {
+            font-size: 1.1rem;
+            color: #343a40;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #f5f5f5;
+            color: #3498db;
+            border-radius: 50%;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .social-icons a:hover {
+            background: #3498db;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(52, 152, 219, 0.3);
+        }
+        
+        .contact-form-wrapper {
+            flex: 1 1 500px;
         }
         
         .contact-form {
-            flex: 1 1 45%;
-            max-width: 45%;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-form h3 {
+            margin: 0 0 25px;
+            color: #343a40;
+            font-size: 1.3rem;
+            text-align: center;
+        }
+        
+        .contact-form .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
         }
         
         .contact-form .form-group {
-            margin-bottom: 15px;
+            flex: 1;
+            margin-bottom: 20px;
         }
         
         .contact-form label {
             display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        .contact-form .input-with-icon {
+            position: relative;
+        }
+        
+        .contact-form .input-with-icon i {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+            font-size: 16px;
+        }
+        
+        .contact-form .input-with-icon.textarea i {
+            top: 15px;
+            transform: none;
         }
         
         .contact-form input,
         .contact-form textarea {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            padding: 12px 15px 12px 40px;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
             font-size: 1rem;
+            transition: all 0.3s;
+            background-color: #f8f9fa;
+            color: #495057;
         }
         
-        .contact-form button {
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #3498db;
+            background-color: #fff;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+            outline: none;
+        }
+        
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .privacy-check {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .privacy-check input {
+            width: auto;
+            margin-top: 5px;
+        }
+        
+        .privacy-check label {
+            font-size: 0.9rem;
+            margin: 0;
+            font-weight: normal;
+        }
+        
+        .contact-form .submit-btn {
             width: 100%;
-            padding: 10px;
-            background: #007BFF;
-            color: #fff;
+            padding: 14px;
+            background: #3498db;
+            color: white;
             border: none;
-            border-radius: 4px;
+            border-radius: 8px;
             cursor: pointer;
-            transition: background 0.3s ease;
+            font-size: 1rem;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
         }
         
-        .contact-form button:hover {
-            background: #0056b3;
+        .contact-form .submit-btn:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+        }
+        
+        .map-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .map-container h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #343a40;
+            font-size: 1.3rem;
+        }
+        
+        .google-map {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: 450px;
+        }
+        
+        .google-map iframe {
+            height: 100%;
+            display: block;
+        }
+        
+        /* Responsive Design for Contact Section */
+        @media (max-width: 992px) {
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .contact-info, .contact-form-wrapper {
+                flex: 1 1 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .google-map {
+                height: 350px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .contact {
+                padding: 60px 0;
+            }
+            
+            .contact-subtitle {
+                font-size: 1rem;
+                margin-bottom: 30px;
+            }
+            
+            .contact-form {
+                padding: 20px;
+            }
+            
+            .contact-card {
+                padding: 15px;
+            }
+            
+            .contact-icon {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .contact-icon i {
+                font-size: 16px;
+            }
+            
+            .google-map {
+                height: 300px;
+            }
         }
     </style>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content animate-fade-in">
-            <div class="footer-section">
-                <h3>Hopewell Health</h3>
-                <p>Providing quality healthcare services since 2020</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Follow Us</h3>
-                <div class="social-links">
-                    <a href="#" class="animate-bounce"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="animate-bounce"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="animate-bounce"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="animate-bounce"><i class="fab fa-linkedin"></i></a>
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <img src="images/logo.png" alt="Hopewell Health Logo">
+                            <h3>Hopewell Health</h3>
+                        </div>
+                        <p>Providing exceptional healthcare services with compassion and expertise since 2020.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="LinkedIn" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="YouTube" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-nav">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#services">Our Services</a></li>
+                            <li><a href="#mental-health">Mental Health</a></li>
+                            <li><a href="#home-care">Home Care</a></li>
+                            <li><a href="#medical-tourism">Medical Tourism</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#contact">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-services">
+                        <h4>Our Services</h4>
+                        <ul>
+                            <li><a href="#services">Cardiology</a></li>
+                            <li><a href="#services">Neurology</a></li>
+                            <li><a href="#services">Orthopedics</a></li>
+                            <li><a href="#services">Mental Health</a></li>
+                            <li><a href="#services">Obstetrics & Gynecology</a></li>
+                            <li><a href="#services">General Medicine</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-contact">
+                        <h4>Contact Information</h4>
+                        <ul class="contact-list">
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>123 Healthcare Avenue, Medical District<br>Nairobi, Kenya</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone-alt"></i>
+                                <span><a href="tel:+254796780345">+254 796 780 345</a></span>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <span><a href="mailto:info@hopewellhealth.com">info@hopewellhealth.com</a></span>
+                            </li>
+                            <li>
+                                <i class="fas fa-clock"></i>
+                                <span>Mon-Fri: 8am-8pm<br>Sat: 9am-5pm<br>Sun: 10am-2pm</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-newsletter">
+                        <h4>Subscribe to Our Newsletter</h4>
+                        <p>Stay updated with our latest health tips and services</p>
+                        <form class="newsletter-form">
+                            <div class="form-group">
+                                <input type="email" placeholder="Your Email Address" required>
+                                <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                            </div>
+                        </form>
+                        <div class="emergency-contact">
+                            <h5>24/7 Emergency Contact</h5>
+                            <a href="tel:+254796780345" class="emergency-btn">
+                                <i class="fas fa-phone-alt"></i> +254 796 780 345
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom animate-slide-up">
-            <p>&copy; 2025 Hopewell Health. All rights reserved. Contact us at <a href="tel:+254796780345">+254796780345</a></p>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 Hopewell Health. All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Sitemap</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 
     <style>
+        /* Modern Footer Styling */
         .footer {
-            background: #333;
+            background: linear-gradient(135deg, #1a2a6c, #2c3e50);
             color: #fff;
-            padding: 20px 0;
-            text-align: center;
             position: relative;
             overflow: hidden;
         }
         
-        .footer-content {
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=2000&q=10');
+            background-size: cover;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+        
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-top {
+            padding: 70px 0 50px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-brand {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            align-items: flex-start;
-            gap: 20px;
-            animation: fadeIn 1.5s ease-in-out;
+            flex-direction: column;
         }
         
-        .footer-section {
-            flex: 1 1 30%;
-            max-width: 30%;
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
         }
         
-        .footer-section h3 {
-            margin-bottom: 10px;
+        .footer-logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #3498db;
+            box-shadow: 0 0 15px rgba(52, 152, 219, 0.5);
         }
         
-        .footer-section ul {
+        .footer-logo h3 {
+            font-size: 1.8rem;
+            margin: 0;
+            background: linear-gradient(90deg, #fff, #3498db);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .footer-brand p {
+            margin: 0 0 25px;
+            line-height: 1.6;
+            color: #ccc;
+            font-size: 0.95rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-icon:hover {
+            background: #3498db;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .footer h4 {
+            font-size: 1.25rem;
+            margin: 0 0 20px;
+            color: #fff;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: #3498db;
+            border-radius: 3px;
+        }
+        
+        .footer ul {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
         
-        .footer-section ul li {
-            margin: 5px 0;
+        .footer-nav ul li,
+        .footer-services ul li {
+            margin-bottom: 12px;
         }
         
-        .footer-section ul li a {
-            color: #fff;
+        .footer-nav ul li a,
+        .footer-services ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-left: 15px;
+            display: inline-block;
+        }
+        
+        .footer-nav ul li a::before,
+        .footer-services ul li a::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #3498db;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+        
+        .footer-nav ul li a:hover,
+        .footer-services ul li a:hover {
+            color: #3498db;
+            transform: translateX(5px);
+        }
+        
+        .footer-nav ul li a:hover::before,
+        .footer-services ul li a:hover::before {
+            transform: scale(1.2);
+        }
+        
+        .contact-list li {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: flex-start;
+        }
+        
+        .contact-list li i {
+            margin-right: 15px;
+            color: #3498db;
+            font-size: 18px;
+            margin-top: 3px;
+        }
+        
+        .contact-list li span {
+            color: #ccc;
+            line-height: 1.6;
+        }
+        
+        .contact-list li a {
+            color: #ccc;
             text-decoration: none;
             transition: color 0.3s ease;
         }
         
-        .footer-section ul li a:hover {
-            color: #007BFF;
+        .contact-list li a:hover {
+            color: #3498db;
         }
         
-        .social-links a {
-            margin: 0 10px;
+        .newsletter-form .form-group {
+            display: flex;
+            margin-top: 15px;
+            position: relative;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
             color: #fff;
-            font-size: 1.5rem;
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form input:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
+        }
+        
+        .newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .newsletter-form button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            bottom: 5px;
+            width: 42px;
+            background: #3498db;
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background: #2980b9;
+            transform: scale(1.05);
+        }
+        
+        .newsletter-form button i {
+            font-size: 1rem;
             transition: transform 0.3s ease;
         }
         
-        .social-links a:hover {
-            transform: scale(1.2);
+        .newsletter-form button:hover i {
+            transform: translateX(3px);
+        }
+        
+        .footer-newsletter p {
+            margin: 10px 0 20px;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+        
+        .emergency-contact {
+            margin-top: 25px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 3px solid #e74c3c;
+        }
+        
+        .emergency-contact h5 {
+            margin: 0 0 10px;
+            color: #fff;
+            font-size: 1rem;
+        }
+        
+        .emergency-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .emergency-btn i {
+            color: #e74c3c;
+        }
+        
+        .emergency-btn:hover {
+            color: #e74c3c;
         }
         
         .footer-bottom {
-            margin-top: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px 0;
             font-size: 0.9rem;
-            animation: slideUp 1.5s ease-in-out;
         }
         
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        
-        @keyframes slideUp {
-            from {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-        
-        .animate-bounce {
-            animation: bounce 1.5s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
-        }
-        
-        .whatsapp-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #25D366;
-            color: white;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
+        .footer-bottom-content {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            transition: transform 0.3s ease;
-        }
-        
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
-        
-        .animate-float {
-            animation: float 2s infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-        
-        /* Logo styling */
-        .logo {
-            display: flex;
-            align-items: center;
+            flex-wrap: wrap;
             gap: 15px;
         }
         
-        .logo-img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #3498db;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .footer-bottom p {
+            margin: 0;
+            color: #aaa;
         }
         
-        .logo-img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #3498db;
+        }
+        
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-brand {
+                grid-column: 1 / -1;
+            }
         }
         
         @media (max-width: 768px) {
-            .logo {
+            .footer-top {
+                padding: 50px 0 30px;
+            }
+            
+            .footer-bottom-content {
                 flex-direction: column;
-                gap: 5px;
+                text-align: center;
             }
             
-            .logo-img {
-                width: 50px;
-                height: 50px;
+            .footer-links {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
             }
             
-            .logo h1 {
+            .footer h4 {
                 font-size: 1.2rem;
+            }
+            
+            .footer-logo h3 {
+                font-size: 1.5rem;
             }
         }
     </style>
 
     <script src="script.js"></script>
+    <script src="hero-buttons.js"></script>
     
     <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/254796780345" class="whatsapp-float animate-float" target="_blank" aria-label="Chat with us on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Modal Structure -->
-    <div id="safeSpaceModal" class="modal-container" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="modalTitle">Mental Health Safe Space</h2>
-                <button type="button" class="close-modal" aria-label="Close">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form id="therapyBookingForm">
-                    <div class="form-group">
-                        <label for="fullName">Full Name</label>
-                        <input type="text" id="fullName" name="fullName" required aria-required="true">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required aria-required="true">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" required aria-required="true">
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="preferredDate">Preferred Date</label>
-                            <input type="date" id="preferredDate" name="preferredDate" required aria-required="true">
-                        </div>
-                        <div class="form-group">
-                            <label for="preferredTime">Preferred Time</label>
-                            <input type="time" id="preferredTime" name="preferredTime" required aria-required="true">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="sessionType">Session Type</label>
-                        <select id="sessionType" name="sessionType" required aria-required="true">
-                            <option value="">Select Session Type</option>
-                            <option value="individual">Individual Therapy</option>
-                            <option value="group">Group Therapy</option>
-                            <option value="family">Family Counseling</option>
-                            <option value="crisis">Crisis Intervention</option>
-                            <option value="assessment">Initial Assessment</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="concerns">Primary Concerns (Optional)</label>
-                        <textarea id="concerns" name="concerns" rows="3" placeholder="Please share any specific concerns you'd like to address"></textarea>
-                    </div>
-                    <!-- Payment Section -->
-                    <div class="payment-section">
-                        <span class="payment-badge">Required</span>
-                        <h4>Payment Required - KSh 500</h4>
-                        <p>A non-refundable fee of KSh 500 is required to book your therapy session.</p>
-                        
-                        <div class="payment-options">
-                            <div class="payment-option" data-method="mpesa">
-                                <i class="fas fa-mobile-alt"></i>
-                                <div>M-Pesa</div>
-                            </div>
-                            <div class="payment-option" data-method="card">
-                                <i class="fas fa-credit-card"></i>
-                                <div>Card</div>
-                            </div>
-                            <div class="payment-option" data-method="bank">
-                                <i class="fas fa-university"></i>
-                                <div>Bank Transfer</div>
-                            </div>
-                        </div>
-                        
-                        <div class="payment-verification">
-                            <label for="therapyPaymentReference">M-Pesa Transaction ID / Payment Reference</label>
-                            <input type="text" id="therapyPaymentReference" name="therapyPaymentReference" placeholder="Enter your payment reference number" required>
-                        </div>
-                        
-                        <div class="payment-instructions">
-                            <p><strong>M-Pesa Instructions:</strong> Send KSh 500 to Till No: 7636095 (Hopewell Health)</p>
-                        </div>
-                    </div>
-                    <div class="form-group privacy-notice">
-                        <input type="checkbox" id="therapyPrivacy" name="therapyPrivacy" required aria-required="true">
-                        <label for="therapyPrivacy">I understand that my information will be kept confidential and secure</label>
-                    </div>
-                    <button type="submit" class="submit-btn">Book Session</button>
-                </form>
-                
-                <div class="emergency-notice">
-                    <p><strong>In case of emergency:</strong> If you're experiencing a mental health crisis, please call our 24/7 crisis line: <a href="tel:+254796780345">+254796780345</a></p>
-                </div>
-                
-                <div class="mental-health-resources">
-                    <h3>Mental Health Resources</h3>
-                    <ul class="resources-list">
-                        <li>
-                            <a href="#" target="_blank">Anxiety & Depression Association</a>
-                            <small>Support for anxiety, depression, and related disorders</small>
-                        </li>
-                        <li>
-                            <a href="#" target="_blank">National Suicide Prevention Lifeline</a>
-                            <small>24/7 support for those in distress</small>
-                        </li>
-                        <li>
-                            <a href="#" target="_blank">Mental Health First Aid</a>
-                            <small>Resources for identifying and responding to mental health issues</small>
-                        </li>
-                        <li>
-                            <a href="#" target="_blank">Kenya Mental Health Support</a>
-                            <small>Local resources and community support</small>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
 
-    <!-- Custom script for Safe Space Modal -->
+    <style>
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 45px;
+            height: 45px;
+            background: #3498db;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .back-to-top:hover {
+            background: #2980b9;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+
     <script>
+        // Back to Top Button Script
         document.addEventListener('DOMContentLoaded', function() {
-            // Safe Space Modal functionality
-            const openSafeSpaceBtn = document.getElementById('openSafeSpaceModal');
-            const safeSpaceModal = document.getElementById('safeSpaceModal');
-            const closeButtons = safeSpaceModal.querySelectorAll('.close-modal');
+            const backToTopBtn = document.getElementById('backToTop');
             
-            // Make sure modal has initial display: none
-            safeSpaceModal.style.display = 'none';
-            
-            // Open modal function
-            function openSafeSpaceModal() {
-                safeSpaceModal.style.display = 'flex';
-                document.body.style.overflow = 'hidden'; // Prevent scrolling
-                safeSpaceModal.setAttribute('aria-hidden', 'false');
-                
-                // Set minimum date for date picker to today
-                const dateInput = document.getElementById('preferredDate');
-                if (dateInput) {
-                    const today = new Date().toISOString().split('T')[0];
-                    dateInput.min = today;
-                }
-                
-                // Focus first form element for accessibility
-                const firstInput = safeSpaceModal.querySelector('input, select, textarea');
-                if (firstInput) firstInput.focus();
-            }
-            
-            // Close modal function
-            function closeSafeSpaceModal() {
-                safeSpaceModal.style.display = 'none';
-                document.body.style.overflow = ''; // Restore scrolling
-                safeSpaceModal.setAttribute('aria-hidden', 'true');
-                
-                // Reset form when closing
-                const form = document.getElementById('therapyBookingForm');
-                if (form) form.reset();
-            }
-            
-            // Event listeners for opening modal
-            if (openSafeSpaceBtn) {
-                openSafeSpaceBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    openSafeSpaceModal();
-                });
-            }
-            
-            // Event listeners for closing modal
-            closeButtons.forEach(button => {
-                button.addEventListener('click', closeSafeSpaceModal);
-            });
-            
-            // Close when clicking outside modal content
-            safeSpaceModal.addEventListener('click', function(e) {
-                if (e.target === safeSpaceModal) {
-                    closeSafeSpaceModal();
+            // Show/hide back to top button based on scroll position
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('active');
+                } else {
+                    backToTopBtn.classList.remove('active');
                 }
             });
             
-            // Close on escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && safeSpaceModal.style.display === 'flex') {
-                    closeSafeSpaceModal();
-                }
-            });
-            
-            // Setup other safe space links in the page
-            const safeSpaceLinks = document.querySelectorAll('.safe-space-button, a[href="#mental-health"]');
-            safeSpaceLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    openSafeSpaceModal();
+            // Smooth scroll to top when clicked
+            backToTopBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
                 });
             });
         });
     </script>
 
-    <!-- Services Modal -->
-    <div id="servicesModal" class="modal-container" aria-hidden="true" role="dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 id="serviceModalTitle">Service Details</h3>
-                <button type="button" class="close-modal" aria-label="Close">&times;</button>
-            </div>
-            <div class="modal-body" id="serviceModalBody">
-                <!-- Content will be dynamically inserted -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal JavaScript -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Modal functionality
-            const modals = document.querySelectorAll('.modal-container');
-            const modalCloseButtons = document.querySelectorAll('.close-modal');
-            
-            // Function to open modal
-            function openModal(modalId) {
-                const modal = document.getElementById(modalId);
-                if (modal) {
-                    modal.style.display = 'flex';
-                    document.body.style.overflow = 'hidden'; // Prevent scrolling
-                    modal.setAttribute('aria-hidden', 'false');
-                    
-                    // Add focus to the first focusable element
-                    const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-                    if (focusableElements.length > 0) {
-                        focusableElements[0].focus();
-                    }
-                }
-            }
-            
-            // Function to close modal
-            function closeModal(modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = ''; // Re-enable scrolling
-                modal.setAttribute('aria-hidden', 'true');
-            }
-            
-            // Close modal when clicking outside content
-            modals.forEach(modal => {
-                modal.addEventListener('click', function(e) {
-                    if (e.target === modal) {
-                        closeModal(modal);
-                    }
-                });
-            });
-            
-            // Close modal when clicking close button
-            modalCloseButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const modal = this.closest('.modal-container');
-                    closeModal(modal);
-                });
-            });
-            
-            // Safe Space Modal opener
-            const safeSpaceLink = document.querySelector('a[href="#mental-health"]');
-            if (safeSpaceLink) {
-                safeSpaceLink.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    openModal('safeSpaceModal');
-                });
-            }
-            
-            // Add "Book a Session" button to Mental Health section
-            const mentalHealthSection = document.querySelector('.mental-health-features');
-            if (mentalHealthSection) {
-                const bookButton = document.createElement('a');
-                bookButton.href = '#';
-                bookButton.className = 'mental-health-cta';
-                bookButton.textContent = 'Book a Safe Space Session';
-                bookButton.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    openModal('safeSpaceModal');
-                });
-                mentalHealthSection.appendChild(bookButton);
-            }
-            
-            // Services Modal functionality
-            const serviceCards = document.querySelectorAll('.service-card');
-            
-            // Sample service data (you can replace this with actual data)
-            const serviceDetails = {
-                'cardiology': {
-                    title: 'Cardiology Services',
-                    description: 'Our cardiology department provides comprehensive heart care services including diagnostic tests, treatment plans, and preventive care.',
-                    features: [
-                        'ECG and Echo Tests',
-                        'Heart Disease Management',
-                        'Cardiac Rehabilitation',
-                        'Preventive Cardiology'
-                    ],
-                    specialists: ['Dr. James Wilson', 'Dr. Sarah Johnson']
-                },
-                'neurology': {
-                    title: 'Neurology Services',
-                    description: 'Our neurology specialists diagnose and treat disorders of the nervous system, including the brain, spinal cord, and nerves.',
-                    features: [
-                        'Neurological Examinations',
-                        'EEG Testing',
-                        'Movement Disorder Treatment',
-                        'Headache Management'
-                    ],
-                    specialists: ['Dr. Michael Chen', 'Dr. Emma Rodriguez']
-                },
-                'mental-health': {
-                    title: 'Mental Health Services',
-                    description: 'Our mental health services provide support for a range of psychological and emotional challenges through therapy, counseling, and psychiatric care.',
-                    features: [
-                        'Individual Therapy',
-                        'Group Counseling',
-                        'Psychiatric Evaluation',
-                        'Stress Management'
-                    ],
-                    specialists: ['Dr. Lisa Park', 'Dr. Robert Nelson']
-                }
-            };
-            
-            // Add click event to service cards
-            serviceCards.forEach((card, index) => {
-                // Add service details to cards
-                if (card.innerHTML.trim() === '') {
-                    const serviceTypes = ['cardiology', 'neurology', 'orthopedics', 'mental-health', 'pediatrics', 'dermatology', 'ophthalmology', 'dental', 'general'];
-                    const serviceType = serviceTypes[index % serviceTypes.length];
-                    const icons = ['fa-heartbeat', 'fa-brain', 'fa-bone', 'fa-comment-medical', 'fa-baby', 'fa-allergies', 'fa-eye', 'fa-tooth', 'fa-stethoscope'];
-                    
-                    card.innerHTML = `
-                        <i class="fas ${icons[index % icons.length]}"></i>
-                        <h3>${serviceType.charAt(0).toUpperCase() + serviceType.slice(1)}</h3>
-                        <p>Comprehensive ${serviceType} care for patients of all ages.</p>
-                        <a href="#" class="service-btn" data-service="${serviceType}">Learn More</a>
-                    `;
-                }
-                
-                // Find service button in the card
-                const serviceBtn = card.querySelector('.service-btn');
-                if (serviceBtn) {
-                    serviceBtn.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const serviceType = this.getAttribute('data-service');
-                        const details = serviceDetails[serviceType] || {
-                            title: `${serviceType.charAt(0).toUpperCase() + serviceType.slice(1)} Services`,
-                            description: `Our ${serviceType} department offers specialized care and treatment options.`,
-                            features: ['Comprehensive Examinations', 'Treatment Plans', 'Follow-up Care'],
-                            specialists: ['Specialist Doctors Available']
-                        };
-                        
-                        // Update modal content
-                        document.getElementById('serviceModalTitle').textContent = details.title;
-                        
-                        // Create content for service modal
-                        const modalContent = `
-                            <div class="service-detail-container">
-                                <p class="service-description">${details.description}</p>
-                                
-                                <div class="service-features-section">
-                                    <h4>Our Services Include:</h4>
-                                    <ul class="service-features-list">
-                                        ${details.features.map(feature => `<li><i class="fas fa-check-circle"></i> ${feature}</li>`).join('')}
-                                    </ul>
-                                </div>
-                                
-                                <div class="specialists-section">
-                                    <h4>Our Specialists:</h4>
-                                    <div class="specialists-list">
-                                        ${details.specialists.map(specialist => `<div class="specialist"><i class="fas fa-user-md"></i> ${specialist}</div>`).join('')}
-                                    </div>
-                                </div>
-                                
-                                <div class="service-cta-container">
-                                    <a href="#consultation" class="service-consultation-btn" id="scheduleConsultation">Schedule a Consultation</a>
-                                </div>
-                            </div>
-                        `;
-                        
-                        document.getElementById('serviceModalBody').innerHTML = modalContent;
-                        
-                        // Add event listener to consultation button
-                        const consultationBtn = document.getElementById('scheduleConsultation');
-                        if (consultationBtn) {
-                            consultationBtn.addEventListener('click', function() {
-                                closeModal(document.getElementById('servicesModal'));
-                                
-                                // Scroll to consultation section
-                                const consultationSection = document.getElementById('consultation');
-                                if (consultationSection) {
-                                    consultationSection.scrollIntoView({ behavior: 'smooth' });
-                                    
-                                    // Pre-select department if possible
-                                    const departmentSelect = document.getElementById('department');
-                                    if (departmentSelect) {
-                                        const options = Array.from(departmentSelect.options);
-                                        const option = options.find(opt => opt.value === serviceType);
-                                        if (option) {
-                                            departmentSelect.value = serviceType;
-                                        }
-                                    }
-                                }
-                            });
-                        }
-                        
-                        openModal('servicesModal');
-                    });
-                }
-            });
-            
-            // Add custom styles for service modal
-            const style = document.createElement('style');
-            style.textContent = `
-                .service-detail-container {
-                    padding: 10px;
-                }
-                
-                .service-description {
-                    font-size: 1.1rem;
-                    line-height: 1.6;
-                    margin-bottom: 20px;
-                    color: #333;
-                }
-                
-                .service-features-section,
-                .specialists-section {
-                    margin-bottom: 25px;
-                }
-                
-                .service-features-section h4,
-                .specialists-section h4 {
-                    font-size: 1.2rem;
-                    color: #3498db;
-                    margin-bottom: 15px;
-                    border-bottom: 1px solid #eee;
-                    padding-bottom: 8px;
-                }
-                
-                .service-features-list {
-                    list-style: none;
-                    padding: 0;
-                }
-                
-                .service-features-list li {
-                    margin-bottom: 10px;
-                    display: flex;
-                    align-items: center;
-                }
-                
-                .service-features-list li i {
-                    color: #2ecc71;
-                    margin-right: 10px;
-                }
-                
-                .specialists-list {
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: 15px;
-                }
-                
-                .specialist {
-                    background: #f5f5f5;
-                    padding: 10px 15px;
-                    border-radius: 5px;
-                    display: flex;
-                    align-items: center;
-                    font-weight: 500;
-                }
-                
-                .specialist i {
-                    color: #3498db;
-                    margin-right: 10px;
-                }
-                
-                .service-cta-container {
-                    margin-top: 20px;
-                    text-align: center;
-                }
-                
-                .service-consultation-btn {
-                    display: inline-block;
-                    background: #3498db;
-                    color: white;
-                    padding: 12px 25px;
-                    border-radius: 30px;
-                    text-decoration: none;
-                    font-weight: 600;
-                    transition: all 0.3s;
-                }
-                
-                .service-consultation-btn:hover {
-                    background: #2980b9;
-                    transform: translateY(-3px);
-                    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-                }
-                
-                .mental-health-cta {
-                    display: inline-block;
-                    background: #3498db;
-                    color: white;
-                    padding: 12px 25px;
-                    border-radius: 30px;
-                    text-decoration: none;
-                    font-weight: 600;
-                    margin-top: 20px;
-                    transition: all 0.3s;
-                }
-                
-                .mental-health-cta:hover {
-                    background: #2980b9;
-                    transform: translateY(-3px);
-                    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-                }
-            `;
-            document.head.appendChild(style);
-            
-            // ESC key to close modal
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    modals.forEach(modal => {
-                        if (modal.style.display === 'flex') {
-                            closeModal(modal);
-                        }
-                    });
-                }
-            });
-        });
-    </script>
-</body>
-
-<!-- Form Modals -->
+    <!-- Form Modals -->
 <!-- Home Care Modal -->
 <div id="homeCareModal" class="modal-container">
     <div class="modal-content">
@@ -2996,4 +3127,346 @@
         </div>
     </div>
 </div>
+
+<!-- Safe Space Modal -->
+<div id="safeSpaceModal" class="modal-container">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Safe Space - Mental Health Support</h3>
+            <button type="button" class="close-modal" aria-label="Close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="safe-space-intro">
+                <p>At Hopewell Health, we understand that seeking mental health support can be a significant step. Our Safe Space provides confidential, compassionate care in a judgment-free environment.</p>
+                <div class="safe-space-features">
+                    <div class="safe-space-feature">
+                        <i class="fas fa-lock"></i>
+                        <h4>Completely Confidential</h4>
+                        <p>Your privacy is our top priority. All information shared remains strictly confidential.</p>
+                    </div>
+                    <div class="safe-space-feature">
+                        <i class="fas fa-comments"></i>
+                        <h4>Professional Support</h4>
+                        <p>Our licensed therapists provide expert guidance and support.</p>
+                    </div>
+                </div>
+            </div>
+            <form id="safeSpaceForm" class="modal-form">
+                <div class="form-section-header">
+                    <h4>Book a Therapy Session</h4>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="safeName">Full Name</label>
+                        <input type="text" id="safeName" name="safeName" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="safeAge">Age</label>
+                        <input type="number" id="safeAge" name="safeAge" min="12" max="120" placeholder="Enter your age" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="safeEmail">Email</label>
+                        <input type="email" id="safeEmail" name="safeEmail" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="safePhone">Phone Number</label>
+                        <input type="tel" id="safePhone" name="safePhone" placeholder="Enter your phone number" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="therapyType">Type of Therapy</label>
+                        <select id="therapyType" name="therapyType" required>
+                            <option value="">Select Therapy Type</option>
+                            <option value="individual">Individual Therapy</option>
+                            <option value="couples">Couples Therapy</option>
+                            <option value="family">Family Therapy</option>
+                            <option value="group">Group Therapy</option>
+                            <option value="crisis">Crisis Intervention</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="preferredDate">Preferred Date</label>
+                        <input type="date" id="preferredDate" name="preferredDate" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="preferredTime">Preferred Time</label>
+                        <select id="preferredTime" name="preferredTime" required>
+                            <option value="">Select Time</option>
+                            <option value="morning">Morning (8 AM - 12 PM)</option>
+                            <option value="afternoon">Afternoon (12 PM - 4 PM)</option>
+                            <option value="evening">Evening (4 PM - 8 PM)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sessionMode">Session Mode</label>
+                        <select id="sessionMode" name="sessionMode" required>
+                            <option value="">Select Mode</option>
+                            <option value="in-person">In-Person</option>
+                            <option value="video">Video Call</option>
+                            <option value="phone">Phone Call</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="safeNotes">Additional Information (Optional)</label>
+                    <textarea id="safeNotes" name="safeNotes" rows="3" placeholder="Please share any information that might help us better understand your needs"></textarea>
+                </div>
+                <div class="safe-space-urgent">
+                    <div class="urgent-header">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <h4>Need Immediate Help?</h4>
+                    </div>
+                    <p>If you're experiencing a mental health emergency, please call our 24/7 crisis line: <a href="tel:+254796780345">+254 796 780 345</a></p>
+                </div>
+                <div class="form-group privacy-notice">
+                    <input type="checkbox" id="safePrivacy" name="safePrivacy" required>
+                    <label for="safePrivacy">I understand that my information will be kept confidential and secure</label>
+                </div>
+                <button type="submit" class="submit-btn">Book Therapy Session</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Safe Space Modal Styling */
+    .safe-space-intro {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 25px;
+    }
+    
+    .safe-space-intro p {
+        color: #495057;
+        margin-bottom: 15px;
+        line-height: 1.6;
+        font-size: 1rem;
+    }
+    
+    .safe-space-features {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-top: 20px;
+    }
+    
+    .safe-space-feature {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        text-align: center;
+    }
+    
+    .safe-space-feature i {
+        color: #3498db;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    
+    .safe-space-feature h4 {
+        color: #343a40;
+        margin-bottom: 8px;
+        font-size: 1.1rem;
+    }
+    
+    .safe-space-feature p {
+        color: #6c757d;
+        font-size: 0.9rem;
+        margin: 0;
+    }
+    
+    .form-section-header {
+        margin: 25px 0 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #e9ecef;
+    }
+    
+    .form-section-header h4 {
+        color: #3498db;
+        margin: 0;
+        font-size: 1.2rem;
+    }
+    
+    .safe-space-urgent {
+        background-color: #fff8f8;
+        border: 1px solid #ffcccb;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 20px 0;
+    }
+    
+    .urgent-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    
+    .urgent-header i {
+        color: #e74c3c;
+        font-size: 20px;
+        margin-right: 10px;
+    }
+    
+    .urgent-header h4 {
+        color: #e74c3c;
+        margin: 0;
+        font-size: 1.1rem;
+    }
+    
+    .safe-space-urgent p {
+        margin: 0;
+        color: #6c757d;
+        font-size: 0.95rem;
+    }
+    
+    .safe-space-urgent a {
+        color: #e74c3c;
+        font-weight: 600;
+        text-decoration: none;
+    }
+    
+    .safe-space-urgent a:hover {
+        text-decoration: underline;
+    }
+    
+    @media (max-width: 768px) {
+        .safe-space-features {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Set up Safe Space Form submission
+        const safeSpaceForm = document.getElementById('safeSpaceForm');
+        if (safeSpaceForm) {
+            safeSpaceForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = new FormData(this);
+                let emailBody = "Safe Space Therapy Session Request:\n\n";
+                
+                // Add form fields to email body
+                for (let [name, value] of formData.entries()) {
+                    emailBody += `${name}: ${value}\n`;
+                }
+                
+                // Show loading state
+                const submitBtn = this.querySelector('.submit-btn');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Submitting...';
+                submitBtn.disabled = true;
+                
+                // Use mailto link to open email client
+                const mailtoLink = `mailto:info@hopewellhealth.com?subject=${encodeURIComponent("Safe Space Therapy Session Request")}&body=${encodeURIComponent(emailBody)}`;
+                window.location.href = mailtoLink;
+                
+                // Reset form after delay
+                setTimeout(() => {
+                    submitBtn.textContent = 'Request Sent!';
+                    setTimeout(() => {
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                        safeSpaceForm.reset();
+                        
+                        // Close modal
+                        const modal = document.getElementById('safeSpaceModal');
+                        if (modal) {
+                            modal.style.display = 'none';
+                            document.body.style.overflow = '';
+                        }
+                    }, 3000);
+                    
+                    // Show success message
+                    alert('Thank you for requesting a therapy session. Our team will contact you shortly to confirm your appointment.');
+                }, 1500);
+            });
+        }
+        
+        // Set minimum date for date picker to today
+        const preferredDateInput = document.getElementById('preferredDate');
+        if (preferredDateInput) {
+            const today = new Date().toISOString().split('T')[0];
+            preferredDateInput.min = today;
+        }
+        
+        // Add event listener to Safe Space Button if not already handled
+        const safeSpaceBtn = document.getElementById('openSafeSpaceModal');
+        const safeSpaceModal = document.getElementById('safeSpaceModal');
+        
+        if (safeSpaceBtn && safeSpaceModal) {
+            safeSpaceBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                safeSpaceModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+                
+                // Focus first form element for accessibility
+                const firstInput = safeSpaceModal.querySelector('input, select, textarea');
+                if (firstInput) firstInput.focus();
+            });
+        }
+        
+        // Add click event to all consultation buttons in service cards
+        const consultationBtns = document.querySelectorAll('.consultation-btn');
+        const consultationModal = document.getElementById('consultationModal');
+        
+        if (consultationBtns.length > 0 && consultationModal) {
+            consultationBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Get the service type
+                    const serviceType = this.getAttribute('data-service');
+                    
+                    // Display the modal
+                    consultationModal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                    
+                    // Pre-select department if specified in the data-service attribute
+                    const departmentSelect = document.getElementById('department');
+                    if (departmentSelect && serviceType) {
+                        const options = Array.from(departmentSelect.options);
+                        const option = options.find(opt => opt.value === serviceType);
+                        if (option) {
+                            departmentSelect.value = serviceType;
+                        }
+                    }
+                    
+                    // Same for modal form
+                    const departmentModalSelect = document.getElementById('departmentModal');
+                    if (departmentModalSelect && serviceType) {
+                        const options = Array.from(departmentModalSelect.options);
+                        const option = options.find(opt => opt.value === serviceType);
+                        if (option) {
+                            departmentModalSelect.value = serviceType;
+                        }
+                    }
+                });
+            });
+        }
+        
+        // Add click event to tourism buttons
+        const tourismBtns = document.querySelectorAll('.tourism-btn');
+        const tourismModal = document.getElementById('medicalTourismModal');
+        
+        if (tourismBtns.length > 0 && tourismModal) {
+            tourismBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    tourismModal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                });
+            });
+        }
+    });
+</script>
 </html>
