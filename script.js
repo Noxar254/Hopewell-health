@@ -1899,3 +1899,159 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Payment Option Selection Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Setup payment options for all payment sections
+    const allPaymentSections = document.querySelectorAll('.payment-section');
+    
+    allPaymentSections.forEach(section => {
+        const options = section.querySelectorAll('.payment-option');
+        const instructionsDiv = section.querySelector('.payment-instructions');
+        
+        // Set the first option (M-Pesa) as default selected
+        if (options.length > 0) {
+            options[0].classList.add('selected');
+        }
+        
+        options.forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove selected class from all options
+                options.forEach(opt => opt.classList.remove('selected'));
+                
+                // Add selected class to clicked option
+                this.classList.add('selected');
+                
+                // Update instructions based on payment method
+                const method = this.getAttribute('data-method');
+                let instructionsHtml = '';
+                
+                switch(method) {
+                    case 'mpesa':
+                        instructionsHtml = '<p><strong>M-Pesa Instructions:</strong> Send KSh 500 to Till No: 7636095 (Hopewell Health)</p>';
+                        break;
+                    case 'card':
+                        instructionsHtml = '<p><strong>Card Payment Instructions:</strong> Click the Submit button to be redirected to our secure payment gateway.</p>';
+                        break;
+                    case 'bank':
+                        instructionsHtml = '<p><strong>Bank Transfer Instructions:</strong> Transfer KSh 500 to Account: 1234567890, Bank: ABC Bank, Branch: Main.</p>';
+                        break;
+                }
+                
+                instructionsDiv.innerHTML = instructionsHtml;
+            });
+        });
+    });
+    
+    // Form validation for payment references
+    function validatePaymentReference(formData) {
+        // Get all payment references
+        const referenceFields = [
+            document.getElementById('paymentReference'),
+            document.getElementById('homeCarePaymentReference'),
+            document.getElementById('tourismPaymentReference'),
+            document.getElementById('therapyPaymentReference')
+        ].filter(field => field !== null);
+        
+        let isValid = true;
+        
+        referenceFields.forEach(field => {
+            if (field && field.value.trim() === '') {
+                showError(field.id, 'Please enter a valid payment reference number');
+                isValid = false;
+            }
+        });
+        
+        return isValid;
+    }
+    
+    // Extend existing form validation functions to include payment validation
+    const originalValidateForm = window.validateForm;
+    if (typeof originalValidateForm === 'function') {
+        window.validateForm = function(formData) {
+            let isValid = originalValidateForm(formData);
+            return isValid && validatePaymentReference(formData);
+        }
+    }
+    
+    const originalValidateContactForm = window.validateContactForm;
+    if (typeof originalValidateContactForm === 'function') {
+        window.validateContactForm = function(formData) {
+            let isValid = originalValidateContactForm(formData);
+            return isValid && validatePaymentReference(formData);
+        }
+    }
+    
+    const originalValidateHomeCareForm = window.validateHomeCareForm;
+    if (typeof originalValidateHomeCareForm === 'function') {
+        window.validateHomeCareForm = function(formData) {
+            let isValid = originalValidateHomeCareForm(formData);
+            return isValid && validatePaymentReference(formData);
+        }
+    }
+    
+    const originalValidateTherapyForm = window.validateTherapyForm;
+    if (typeof originalValidateTherapyForm === 'function') {
+        window.validateTherapyForm = function(formData) {
+            let isValid = originalValidateTherapyForm(formData);
+            return isValid && validatePaymentReference(formData);
+        }
+    }
+    
+    const originalValidateTourismForm = window.validateTourismForm;
+    if (typeof originalValidateTourismForm === 'function') {
+        window.validateTourismForm = function(formData) {
+            let isValid = originalValidateTourismForm(formData);
+            return isValid && validatePaymentReference(formData);
+        }
+    }
+});
+
+// Update form data collection to include payment information
+const originalSendToGoogleSheets = window.sendToGoogleSheets;
+if (typeof originalSendToGoogleSheets === 'function') {
+    window.sendToGoogleSheets = function(formData, formType) {
+        // Add payment information to form data
+        let paymentReference = '';
+        let paymentMethod = 'M-Pesa'; // Default
+        
+        switch(formType) {
+            case 'consultation':
+                paymentReference = document.getElementById('paymentReference')?.value || '';
+                const consultPaymentOption = document.querySelector('#consultationForm .payment-option.selected');
+                if (consultPaymentOption) {
+                    paymentMethod = consultPaymentOption.getAttribute('data-method');
+                }
+                break;
+            case 'homecare':
+                paymentReference = document.getElementById('homeCarePaymentReference')?.value || '';
+                const homecarePaymentOption = document.querySelector('#homeCareForm .payment-option.selected');
+                if (homecarePaymentOption) {
+                    paymentMethod = homecarePaymentOption.getAttribute('data-method');
+                }
+                break;
+            case 'medical-tourism':
+                paymentReference = document.getElementById('tourismPaymentReference')?.value || '';
+                const tourismPaymentOption = document.querySelector('#medicalTourismForm .payment-option.selected');
+                if (tourismPaymentOption) {
+                    paymentMethod = tourismPaymentOption.getAttribute('data-method');
+                }
+                break;
+            case 'therapy':
+                paymentReference = document.getElementById('therapyPaymentReference')?.value || '';
+                const therapyPaymentOption = document.querySelector('#therapyBookingForm .payment-option.selected');
+                if (therapyPaymentOption) {
+                    paymentMethod = therapyPaymentOption.getAttribute('data-method');
+                }
+                break;
+        }
+        
+        // Add payment info to formData
+        formData.paymentMethod = paymentMethod;
+        formData.paymentReference = paymentReference;
+        formData.paymentAmount = 'KSh 500';
+        
+        // Call the original function with the updated form data
+        return originalSendToGoogleSheets(formData, formType);
+    }
+}

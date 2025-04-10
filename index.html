@@ -153,75 +153,300 @@
             <h2 class="section-title animate-fade-in">Home-Based Care Services</h2>
             <p class="animate-fade-in">Professional healthcare services delivered to your doorstep</p>
             
-            <div class="home-care-features">
-                <div class="feature animate-card">
-                    <i class="fas fa-vial"></i>
-                    <h3>Laboratory Tests</h3>
-                    <p>Convenient at-home sample collection and testing</p>
+            <div class="home-care-content">
+                <div class="home-care-info">
+                    <div class="home-care-features">
+                        <div class="feature animate-card">
+                            <i class="fas fa-vial"></i>
+                            <h3>Laboratory Tests</h3>
+                            <p>Convenient at-home sample collection and testing</p>
+                        </div>
+                        <div class="feature animate-card delay-1">
+                            <i class="fas fa-pills"></i>
+                            <h3>Drug Delivery</h3>
+                            <p>Timely delivery of prescribed medications</p>
+                        </div>
+                        <div class="feature animate-card delay-2">
+                            <i class="fas fa-file-medical"></i>
+                            <h3>Prescription Management</h3>
+                            <p>Secure handling of your medical prescriptions</p>
+                        </div>
+                    </div>
+                    <a href="#" class="home-care-cta" id="requestHomeCareCTA">Request Home Care Service</a>
                 </div>
-                <div class="feature animate-card delay-1">
-                    <i class="fas fa-pills"></i>
-                    <h3>Drug Delivery</h3>
-                    <p>Timely delivery of prescribed medications</p>
-                </div>
-                <div class="feature animate-card delay-2">
-                    <i class="fas fa-file-medical"></i>
-                    <h3>Prescription Management</h3>
-                    <p>Secure handling of your medical prescriptions</p>
-                </div>
-            </div>
 
-            <div class="home-care-form-container">
-                <h3>Request Home Care Services</h3>
-                <form id="homeCareForm" class="home-care-form" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label for="homeCareName">Full Name</label>
-                        <input type="text" id="homeCareName" name="homeCareName" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="homeCarePhone">Phone Number</label>
-                        <input type="tel" id="homeCarePhone" name="homeCarePhone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="homeCareAddress">Delivery Address</label>
-                        <textarea id="homeCareAddress" name="homeCareAddress" rows="3" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="serviceType">Service Required</label>
-                        <select id="serviceType" name="serviceType" required>
-                            <option value="">Select Service</option>
-                            <option value="lab-test">Laboratory Test</option>
-                            <option value="drug-delivery">Drug Delivery</option>
-                            <option value="both">Both Services</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="prescription">Prescription (if applicable)</label>
-                        <input type="file" id="prescription" name="prescription" accept=".pdf,.jpg,.jpeg,.png">
-                        <div class="file-preview" id="prescriptionPreview"></div>
-                    </div>
-                    <div class="form-group">
-                        <label for="labRequest">Lab Request Form (if applicable)</label>
-                        <input type="file" id="labRequest" name="labRequest" accept=".pdf,.jpg,.jpeg,.png">
-                        <div class="file-preview" id="labRequestPreview"></div>
-                    </div>
-                    <div class="form-group">
-                        <label for="preferredTime">Preferred Time</label>
-                        <input type="datetime-local" id="preferredTime" name="preferredTime" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="additionalNotes">Additional Notes</label>
-                        <textarea id="additionalNotes" name="additionalNotes" rows="3" placeholder="Any specific instructions or requirements"></textarea>
-                    </div>
-                    <div class="form-group privacy-notice">
-                        <input type="checkbox" id="homeCarePrivacy" name="homeCarePrivacy" required>
-                        <label for="homeCarePrivacy">I understand that my information will be kept confidential and secure</label>
-                    </div>
-                    <button type="submit" class="submit-btn">Request Service</button>
-                </form>
+                <div class="home-care-form-container" id="homeCareFormContainer" style="display: none;">
+                    <h3>Request Home Care Services</h3>
+                    <form id="homeCareForm" class="home-care-form" enctype="multipart/form-data">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="homeCareName">Full Name</label>
+                                <input type="text" id="homeCareName" name="homeCareName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="homeCarePhone">Phone Number</label>
+                                <input type="tel" id="homeCarePhone" name="homeCarePhone" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="homeCareAddress">Delivery Address</label>
+                            <textarea id="homeCareAddress" name="homeCareAddress" rows="2" required></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="serviceType">Service Required</label>
+                                <select id="serviceType" name="serviceType" required>
+                                    <option value="">Select Service</option>
+                                    <option value="lab-test">Laboratory Test</option>
+                                    <option value="drug-delivery">Drug Delivery</option>
+                                    <option value="both">Both Services</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="preferredTime">Preferred Time</label>
+                                <input type="datetime-local" id="preferredTime" name="preferredTime" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="prescription">Prescription (if applicable)</label>
+                                <input type="file" id="prescription" name="prescription" accept=".pdf,.jpg,.jpeg,.png">
+                            </div>
+                            <div class="form-group">
+                                <label for="labRequest">Lab Request Form (if applicable)</label>
+                                <input type="file" id="labRequest" name="labRequest" accept=".pdf,.jpg,.jpeg,.png">
+                            </div>
+                        </div>
+                        <!-- Compact Payment Section -->
+                        <div class="compact-payment">
+                            <div class="payment-header">
+                                <h4>Payment (KSh 500 fee required)</h4>
+                                <span class="payment-badge">Required</span>
+                            </div>
+                            <div class="payment-options">
+                                <select id="homeCarePaymentMethod" name="homeCarePaymentMethod">
+                                    <option value="mpesa">M-Pesa (Till: 7636095)</option>
+                                    <option value="card">Credit/Debit Card</option>
+                                    <option value="bank">Bank Transfer</option>
+                                </select>
+                                <input type="text" id="homeCarePaymentReference" name="homeCarePaymentReference" placeholder="Transaction ID/Reference" required>
+                            </div>
+                        </div>
+                        <div class="form-group privacy-notice">
+                            <input type="checkbox" id="homeCarePrivacy" name="homeCarePrivacy" required>
+                            <label for="homeCarePrivacy">I understand that my information will be kept secure</label>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="button" class="cancel-btn" id="cancelHomeCareCTA">Cancel</button>
+                            <button type="submit" class="submit-btn">Request Service</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
+
+    <style>
+        .home-care {
+            padding: 60px 0;
+            background: #f8fafe;
+        }
+        
+        .home-care-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .home-care-container > p {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+            color: #555;
+        }
+        
+        .home-care-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .home-care-info {
+            text-align: center;
+            width: 100%;
+        }
+        
+        .home-care-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .feature {
+            background: #fff;
+            padding: 30px 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .feature i {
+            font-size: 40px;
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+        
+        .feature h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .feature p {
+            color: #666;
+        }
+        
+        .home-care-cta {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .home-care-cta:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .home-care-form-container {
+            margin-top: 40px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            width: 100%;
+            max-width: 800px;
+        }
+        
+        .home-care-form-container h3 {
+            margin-bottom: 25px;
+            text-align: center;
+            color: #2980b9;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .compact-payment {
+            background: #f0f8ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .payment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .payment-header h4 {
+            margin: 0;
+            color: #3498db;
+        }
+        
+        .payment-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        .payment-options select,
+        .payment-options input {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        
+        .form-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .form-buttons button {
+            flex: 1;
+            padding: 12px;
+        }
+        
+        .cancel-btn {
+            background: #f5f5f5;
+            color: #333;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .cancel-btn:hover {
+            background: #e9e9e9;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .payment-options {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Home Care toggle functionality
+            const requestHomeCareBtn = document.getElementById('requestHomeCareCTA');
+            const cancelHomeCareCTA = document.getElementById('cancelHomeCareCTA');
+            const homeCareFormContainer = document.getElementById('homeCareFormContainer');
+            
+            if(requestHomeCareBtn && homeCareFormContainer) {
+                requestHomeCareBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    homeCareFormContainer.style.display = 'block';
+                    requestHomeCareBtn.style.display = 'none';
+                    
+                    // Smooth scroll to form
+                    homeCareFormContainer.scrollIntoView({behavior: 'smooth'});
+                });
+            }
+            
+            if(cancelHomeCareCTA && homeCareFormContainer && requestHomeCareBtn) {
+                cancelHomeCareCTA.addEventListener('click', function() {
+                    homeCareFormContainer.style.display = 'none';
+                    requestHomeCareBtn.style.display = 'inline-block';
+                });
+            }
+        });
+    </script>
 
     <!-- Medical Tourism Section -->
     <section id="medical-tourism" class="medical-tourism">
@@ -291,6 +516,36 @@
                         <div class="form-group">
                             <label for="tourismMessage">Additional Information</label>
                             <textarea id="tourismMessage" name="tourismMessage" rows="3" placeholder="Any specific needs or questions about medical tourism"></textarea>
+                        </div>
+                        <!-- Payment Section -->
+                        <div class="payment-section">
+                            <span class="payment-badge">Required</span>
+                            <h4>Payment Required - KSh 500</h4>
+                            <p>A non-refundable fee of KSh 500 is required to process your medical tourism information request.</p>
+                            
+                            <div class="payment-options">
+                                <div class="payment-option" data-method="mpesa">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <div>M-Pesa</div>
+                                </div>
+                                <div class="payment-option" data-method="card">
+                                    <i class="fas fa-credit-card"></i>
+                                    <div>Card</div>
+                                </div>
+                                <div class="payment-option" data-method="bank">
+                                    <i class="fas fa-university"></i>
+                                    <div>Bank Transfer</div>
+                                </div>
+                            </div>
+                            
+                            <div class="payment-verification">
+                                <label for="tourismPaymentReference">M-Pesa Transaction ID / Payment Reference</label>
+                                <input type="text" id="tourismPaymentReference" name="tourismPaymentReference" placeholder="Enter your payment reference number" required>
+                            </div>
+                            
+                            <div class="payment-instructions">
+                                <p><strong>M-Pesa Instructions:</strong> Send KSh 500 to Till No: 7636095 (Hopewell Health)</p>
+                            </div>
                         </div>
                         <div class="form-group privacy-notice">
                             <input type="checkbox" id="tourismPrivacy" name="tourismPrivacy" required>
@@ -634,6 +889,36 @@
                     <label for="message">Additional Information</label>
                     <textarea id="message" name="message" rows="4" placeholder="Please share any specific concerns or preferences"></textarea>
                 </div>
+                <!-- Payment Section -->
+                <div class="payment-section">
+                    <span class="payment-badge">Required</span>
+                    <h4>Payment Required - KSh 500</h4>
+                    <p>A non-refundable fee of KSh 500 is required to process your consultation request.</p>
+                    
+                    <div class="payment-options">
+                        <div class="payment-option" data-method="mpesa">
+                            <i class="fas fa-mobile-alt"></i>
+                            <div>M-Pesa</div>
+                        </div>
+                        <div class="payment-option" data-method="card">
+                            <i class="fas fa-credit-card"></i>
+                            <div>Card</div>
+                        </div>
+                        <div class="payment-option" data-method="bank">
+                            <i class="fas fa-university"></i>
+                            <div>Bank Transfer</div>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-verification">
+                        <label for="paymentReference">M-Pesa Transaction ID / Payment Reference</label>
+                        <input type="text" id="paymentReference" name="paymentReference" placeholder="Enter your payment reference number" required>
+                    </div>
+                    
+                    <div class="payment-instructions">
+                        <p><strong>M-Pesa Instructions:</strong> Send KSh 500 to Till No: 7636095 (Hopewell Health)</p>
+                    </div>
+                </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label for="medicalDocuments">Medical Documents (PDF, DOC, DOCX)</label>
@@ -703,6 +988,99 @@
 
         .consultation-form button:hover {
             background: #0056b3;
+        }
+        
+        /* Payment Section Styling */
+        .payment-section {
+            background-color: #f0f8ff;
+            border: 1px solid #add8e6;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .payment-section h4 {
+            margin-top: 0;
+            color: #3498db;
+            font-size: 1.1rem;
+        }
+        
+        .payment-section p {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .payment-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #e74c3c;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transform: rotate(5deg);
+        }
+        
+        .payment-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .payment-option {
+            flex: 1;
+            min-width: 140px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .payment-option:hover {
+            border-color: #3498db;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+        
+        .payment-option.selected {
+            border: 2px solid #3498db;
+            background-color: #ebf7ff;
+        }
+        
+        .payment-option i {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: #3498db;
+        }
+        
+        .payment-verification {
+            margin-top: 10px;
+        }
+        
+        .payment-verification label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .payment-verification input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .payment-instructions {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #555;
         }
     </style>
 
@@ -1256,6 +1634,36 @@
                     <div class="form-group">
                         <label for="concerns">Primary Concerns (Optional)</label>
                         <textarea id="concerns" name="concerns" rows="3" placeholder="Please share any specific concerns you'd like to address"></textarea>
+                    </div>
+                    <!-- Payment Section -->
+                    <div class="payment-section">
+                        <span class="payment-badge">Required</span>
+                        <h4>Payment Required - KSh 500</h4>
+                        <p>A non-refundable fee of KSh 500 is required to book your therapy session.</p>
+                        
+                        <div class="payment-options">
+                            <div class="payment-option" data-method="mpesa">
+                                <i class="fas fa-mobile-alt"></i>
+                                <div>M-Pesa</div>
+                            </div>
+                            <div class="payment-option" data-method="card">
+                                <i class="fas fa-credit-card"></i>
+                                <div>Card</div>
+                            </div>
+                            <div class="payment-option" data-method="bank">
+                                <i class="fas fa-university"></i>
+                                <div>Bank Transfer</div>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-verification">
+                            <label for="therapyPaymentReference">M-Pesa Transaction ID / Payment Reference</label>
+                            <input type="text" id="therapyPaymentReference" name="therapyPaymentReference" placeholder="Enter your payment reference number" required>
+                        </div>
+                        
+                        <div class="payment-instructions">
+                            <p><strong>M-Pesa Instructions:</strong> Send KSh 500 to Till No: 7636095 (Hopewell Health)</p>
+                        </div>
                     </div>
                     <div class="form-group privacy-notice">
                         <input type="checkbox" id="therapyPrivacy" name="therapyPrivacy" required aria-required="true">
