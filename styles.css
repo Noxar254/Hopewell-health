@@ -1459,3 +1459,272 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+/* Mobile Navigation Styles */
+.mobile-menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    z-index: 1001;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle:hover {
+    color: var(--secondary-color);
+}
+
+/* Enhanced Responsive Design */
+@media (max-width: 1200px) {
+    .hero-content h1 {
+        font-size: 3.2rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.4rem;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .contact-container,
+    .about-container,
+    .consultation-container,
+    .medical-tourism-content {
+        flex-direction: column;
+    }
+    
+    .contact-info, .contact-form,
+    .consultation-description, .consultation-form,
+    .about-image, .about-content {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+    
+    .contact-info {
+        order: 2;
+    }
+    
+    .contact-form {
+        order: 1;
+    }
+    
+    .mental-health-resources ul {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-section {
+        flex: 1 1 100%;
+        max-width: 100%;
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Mobile Navigation */
+    .navbar {
+        flex-wrap: wrap;
+        padding: 0.8rem 5%;
+    }
+    
+    .logo {
+        z-index: 1001;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: var(--white);
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        z-index: 1000;
+        padding: 6rem 2rem 2rem;
+        transition: right 0.3s ease;
+        align-items: flex-start;
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .nav-links li {
+        margin: 0.7rem 0;
+        width: 100%;
+    }
+    
+    .nav-links a {
+        display: block;
+        padding: 0.5rem 0;
+        width: 100%;
+    }
+    
+    .nav-links a.contact-btn {
+        margin-top: 1rem;
+        text-align: center;
+    }
+    
+    /* When menu is open, darken background */
+    .menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 999;
+        display: none;
+    }
+    
+    .menu-overlay.active {
+        display: block;
+    }
+    
+    /* Hero Section */
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .cta-button {
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Services and Features */
+    .services-grid,
+    .mental-health-features,
+    .home-care-features {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Form layouts */
+    .form-row {
+        flex-direction: column;
+    }
+    
+    /* Modal Adjustments */
+    .modal {
+        width: 90%;
+        left: 5% !important;
+        right: 5%;
+    }
+    
+    .modal-body .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    /* Moving to single column layout */
+    .medical-tourism-content, 
+    .about-content,
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Footer adjustment */
+    .footer-section {
+        text-align: center;
+    }
+    
+    .footer-section h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        padding: 0.8rem 3%;
+    }
+    
+    .hero-content {
+        width: 90%;
+        padding: 1.5rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .services, 
+    .mental-health, 
+    .home-care,
+    .about,
+    .contact {
+        padding: 3rem 3%;
+    }
+    
+    /* Simplifying layouts further */
+    .contact-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .home-care-form-container,
+    .mental-health-resources,
+    .tourism-form-container {
+        padding: 1.2rem;
+    }
+    
+    .privacy-notice {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    /* Smaller modals with scrolling */
+    .modal-content {
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+}
+
+/* Fix for consultation form on mobile */
+@media (max-width: 992px) {
+    .consultation-container {
+        flex-direction: column;
+    }
+    
+    .consultation-description,
+    .consultation-form {
+        max-width: 100%;
+    }
+}
+
+/* WhatsApp button positioning adjustments for mobile */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        bottom: 15px;
+        right: 15px;
+    }
+}

@@ -1844,3 +1844,58 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
 });
+
+// Mobile navigation toggle
+document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (mobileMenuToggle) {
+        // Create overlay element for darkening background when menu is open
+        const menuOverlay = document.createElement('div');
+        menuOverlay.className = 'menu-overlay';
+        document.body.appendChild(menuOverlay);
+        
+        // Toggle menu when clicking the hamburger icon
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+            
+            // Change icon between hamburger and X
+            const icon = mobileMenuToggle.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Close menu when clicking on overlay
+        menuOverlay.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+            
+            const icon = mobileMenuToggle.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        });
+        
+        // Close menu when clicking on navigation links
+        const navItems = navLinks.querySelectorAll('a');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+                
+                const icon = mobileMenuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+    }
+});
