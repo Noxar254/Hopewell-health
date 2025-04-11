@@ -73,6 +73,35 @@ document.addEventListener('DOMContentLoaded', function() {
             if (firstInput) firstInput.focus();
         });
     }
+
+    // Payment option selection for consultation modal
+    const modalPaymentOptions = document.querySelectorAll('#consultationModal .payment-option');
+    if (modalPaymentOptions.length > 0) {
+        modalPaymentOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove active class from all options
+                modalPaymentOptions.forEach(opt => opt.classList.remove('active'));
+                // Add active class to clicked option
+                this.classList.add('active');
+                
+                // Update payment reference label based on selection
+                const method = this.dataset.method;
+                const referenceLabel = document.querySelector('label[for="paymentReferenceModal"]');
+                const referenceInput = document.getElementById('paymentReferenceModal');
+                
+                if(method === 'mpesa') {
+                    referenceLabel.textContent = 'M-Pesa Transaction ID';
+                    referenceInput.placeholder = 'Enter your M-Pesa transaction ID';
+                } else if(method === 'card') {
+                    referenceLabel.textContent = 'Card Payment Reference';
+                    referenceInput.placeholder = 'Enter card payment reference';
+                } else if(method === 'bank') {
+                    referenceLabel.textContent = 'Bank Transfer Reference';
+                    referenceInput.placeholder = 'Enter bank transfer reference';
+                }
+            });
+        });
+    }
     
     // Helper function to close modals
     function closeModal(modal) {
