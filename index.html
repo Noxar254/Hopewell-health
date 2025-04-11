@@ -460,21 +460,6 @@
                                 <input type="file" id="labRequest" name="labRequest" accept=".pdf,.jpg,.jpeg,.png">
                             </div>
                         </div>
-                        <!-- Compact Payment Section -->
-                        <div class="compact-payment">
-                            <div class="payment-header">
-                                <h4>Payment (KSh 500 fee required)</h4>
-                                <span class="payment-badge">Required</span>
-                            </div>
-                            <div class="payment-options">
-                                <select id="homeCarePaymentMethod" name="homeCarePaymentMethod">
-                                    <option value="mpesa">M-Pesa (Till: 7636095)</option>
-                                    <option value="card">Credit/Debit Card</option>
-                                    <option value="bank">Bank Transfer</option>
-                                </select>
-                                <input type="text" id="homeCarePaymentReference" name="homeCarePaymentReference" placeholder="Transaction ID/Reference" required>
-                            </div>
-                        </div>
                         <div class="form-group privacy-notice">
                             <input type="checkbox" id="homeCarePrivacy" name="homeCarePrivacy" required>
                             <label for="homeCarePrivacy">I understand that my information will be kept secure</label>
@@ -759,36 +744,6 @@
                         <div class="form-group">
                             <label for="tourismMessage">Additional Information</label>
                             <textarea id="tourismMessage" name="tourismMessage" rows="3" placeholder="Any specific needs or questions about medical tourism"></textarea>
-                        </div>
-                        <!-- Payment Section -->
-                        <div class="payment-section">
-                            <span class="payment-badge">Required</span>
-                            <h4>Payment Required - KSh 500</h4>
-                            <p>A non-refundable fee of KSh 500 is required to process your medical tourism information request.</p>
-                            
-                            <div class="payment-options">
-                                <div class="payment-option" data-method="mpesa">
-                                    <i class="fas fa-mobile-alt"></i>
-                                    <div>M-Pesa</div>
-                                </div>
-                                <div class="payment-option" data-method="card">
-                                    <i class="fas fa-credit-card"></i>
-                                    <div>Card</div>
-                                </div>
-                                <div class="payment-option" data-method="bank">
-                                    <i class="fas fa-university"></i>
-                                    <div>Bank Transfer</div>
-                                </div>
-                            </div>
-                            
-                            <div class="payment-verification">
-                                <label for="tourismPaymentReference">M-Pesa Transaction ID / Payment Reference</label>
-                                <input type="text" id="tourismPaymentReference" name="tourismPaymentReference" placeholder="Enter your payment reference number" required>
-                            </div>
-                            
-                            <div class="payment-instructions">
-                                <p><strong>M-Pesa Instructions:</strong> Send KSh 500 to Till No: 7636095 (Hopewell Health)</p>
-                            </div>
                         </div>
                         <div class="form-group privacy-notice">
                             <input type="checkbox" id="tourismPrivacy" name="tourismPrivacy" required>
@@ -2907,21 +2862,6 @@
                         <input type="file" id="labRequestModal" name="labRequestModal" accept=".pdf,.jpg,.jpeg,.png">
                     </div>
                 </div>
-                <!-- Compact Payment Section -->
-                <div class="compact-payment">
-                    <div class="payment-header">
-                        <h4>Payment (KSh 500 fee required)</h4>
-                        <span class="payment-badge">Required</span>
-                    </div>
-                    <div class="payment-options">
-                        <select id="homeCarePaymentMethodModal" name="homeCarePaymentMethodModal">
-                            <option value="mpesa">M-Pesa (Till: 7636095)</option>
-                            <option value="card">Credit/Debit Card</option>
-                            <option value="bank">Bank Transfer</option>
-                        </select>
-                        <input type="text" id="homeCarePaymentReferenceModal" name="homeCarePaymentReferenceModal" placeholder="Transaction ID/Reference" required>
-                    </div>
-                </div>
                 <div class="form-group privacy-notice">
                     <input type="checkbox" id="homeCarePrivacyModal" name="homeCarePrivacyModal" required>
                     <label for="homeCarePrivacyModal">I understand that my information will be kept secure</label>
@@ -2960,68 +2900,53 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="emailModal">Email</label>
-                        <input type="email" id="emailModal" name="emailModal" placeholder="Enter your email address" required>
+                        <div class="input-with-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="emailModal" name="emailModal" placeholder="Enter your email address" required>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="phoneModal">Phone Number</label>
-                        <input type="tel" id="phoneModal" name="phoneModal" placeholder="Enter your phone number" required>
+                        <div class="input-with-icon">
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" id="phoneModal" name="phoneModal" placeholder="Enter your phone number" required>
+                        </div>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label for="departmentModal">Department</label>
-                        <select id="departmentModal" name="departmentModal" required>
-                            <option value="">Select Department</option>
-                            <option value="cardiology">Cardiology</option>
-                            <option value="neurology">Neurology</option>
-                            <option value="orthopedics">Orthopedics</option>
-                            <option value="obgyn">Obstetrics & Gynecology</option>
-                            <option value="general">General Medicine</option>
-                            <option value="mental-health">Mental Health</option>
-                        </select>
+                        <div class="select-with-icon">
+                            <i class="fas fa-hospital"></i>
+                            <select id="departmentModal" name="departmentModal" required>
+                                <option value="">Select Department</option>
+                                <option value="cardiology">Cardiology</option>
+                                <option value="neurology">Neurology</option>
+                                <option value="orthopedics">Orthopedics</option>
+                                <option value="obgyn">Obstetrics & Gynecology</option>
+                                <option value="general">General Medicine</option>
+                                <option value="mental-health">Mental Health</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="urgencyModal">Urgency Level</label>
-                        <select id="urgencyModal" name="urgencyModal" required>
-                            <option value="">Select Urgency</option>
-                            <option value="emergency">Emergency (Within 24 hours)</option>
-                            <option value="urgent">Urgent (Within 48 hours)</option>
-                            <option value="routine">Routine (Within 1 week)</option>
-                        </select>
+                        <div class="select-with-icon">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <select id="urgencyModal" name="urgencyModal" required>
+                                <option value="">Select Urgency</option>
+                                <option value="emergency">Emergency (Within 24 hours)</option>
+                                <option value="urgent">Urgent (Within 48 hours)</option>
+                                <option value="routine">Routine (Within 1 week)</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="messageModal">Additional Information</label>
-                    <textarea id="messageModal" name="messageModal" rows="4" placeholder="Please share any specific concerns or preferences"></textarea>
-                </div>
-                <!-- Payment Section -->
-                <div class="payment-section">
-                    <span class="payment-badge">Required</span>
-                    <h4>Payment Required - KSh 500</h4>
-                    <p>A non-refundable fee of KSh 500 is required to process your consultation request.</p>
-                    
-                    <div class="payment-options">
-                        <div class="payment-option selected" data-method="mpesa">
-                            <i class="fas fa-mobile-alt"></i>
-                            <div>M-Pesa</div>
-                        </div>
-                        <div class="payment-option" data-method="card">
-                            <i class="fas fa-credit-card"></i>
-                            <div>Card</div>
-                        </div>
-                        <div class="payment-option" data-method="bank">
-                            <i class="fas fa-university"></i>
-                            <div>Bank Transfer</div>
-                        </div>
-                    </div>
-                    
-                    <div class="payment-verification">
-                        <label for="paymentReferenceModal">M-Pesa Transaction ID / Payment Reference</label>
-                        <input type="text" id="paymentReferenceModal" name="paymentReferenceModal" placeholder="Enter your payment reference number" required>
-                    </div>
-                    
-                    <div class="payment-instructions">
-                        <p><strong>M-Pesa Instructions:</strong> Send KSh 500 to Till No: 7636095 (Hopewell Health)</p>
+                    <div class="input-with-icon textarea">
+                        <i class="fas fa-comment-medical"></i>
+                        <textarea id="messageModal" name="messageModal" rows="4" placeholder="Please share any specific concerns or preferences"></textarea>
                     </div>
                 </div>
                 <div class="form-row">
@@ -3087,36 +3012,6 @@
                 <div class="form-group">
                     <label for="tourismMessageModal">Additional Information</label>
                     <textarea id="tourismMessageModal" name="tourismMessageModal" rows="3" placeholder="Any specific needs or questions about medical tourism"></textarea>
-                </div>
-                <!-- Payment Section -->
-                <div class="payment-section">
-                    <span class="payment-badge">Required</span>
-                    <h4>Payment Required - KSh 500</h4>
-                    <p>A non-refundable fee of KSh 500 is required to process your medical tourism information request.</p>
-                    
-                    <div class="payment-options">
-                        <div class="payment-option selected" data-method="mpesa">
-                            <i class="fas fa-mobile-alt"></i>
-                            <div>M-Pesa</div>
-                        </div>
-                        <div class="payment-option" data-method="card">
-                            <i class="fas fa-credit-card"></i>
-                            <div>Card</div>
-                        </div>
-                        <div class="payment-option" data-method="bank">
-                            <i class="fas fa-university"></i>
-                            <div>Bank Transfer</div>
-                        </div>
-                    </div>
-                    
-                    <div class="payment-verification">
-                        <label for="tourismPaymentReferenceModal">M-Pesa Transaction ID / Payment Reference</label>
-                        <input type="text" id="tourismPaymentReferenceModal" name="tourismPaymentReferenceModal" placeholder="Enter your payment reference number" required>
-                    </div>
-                    
-                    <div class="payment-instructions">
-                        <p><strong>M-Pesa Instructions:</strong> Send KSh 500 to Till No: 7636095 (Hopewell Health)</p>
-                    </div>
                 </div>
                 <div class="form-group privacy-notice">
                     <input type="checkbox" id="tourismPrivacyModal" name="tourismPrivacyModal" required>
@@ -3469,4 +3364,185 @@
         }
     });
 </script>
+
+<!-- About Us Modal -->
+<div id="aboutUsModal" class="modal-container">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>About Hopewell Health</h3>
+            <button type="button" class="close-modal" aria-label="Close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="about-modal-content">
+                <div class="about-modal-image">
+                    <img src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Hopewell Health Team" class="animate-card">
+                </div>
+                
+                <div class="about-modal-text">
+                    <h4>Our Story</h4>
+                    <p>Founded in 2020, Hopewell Health was established with a singular vision: to provide exceptional healthcare that treats not just the illness, but the whole person. What began as a small clinic has grown into a comprehensive healthcare facility that thousands of patients trust with their well-being.</p>
+                    
+                    <h4>Our Mission</h4>
+                    <p>At Hopewell Health, our mission is to deliver patient-centered healthcare with excellence, compassion, and integrity. We believe that quality healthcare is a fundamental right, and we are committed to making it accessible to all members of our community.</p>
+                    
+                    <h4>Our Values</h4>
+                    <div class="about-values">
+                        <div class="about-value">
+                            <i class="fas fa-heartbeat"></i>
+                            <h5>Compassion</h5>
+                            <p>We approach every patient with empathy, dignity, and respect.</p>
+                        </div>
+                        <div class="about-value">
+                            <i class="fas fa-award"></i>
+                            <h5>Excellence</h5>
+                            <p>We strive for the highest standards in healthcare delivery.</p>
+                        </div>
+                        <div class="about-value">
+                            <i class="fas fa-balance-scale"></i>
+                            <h5>Integrity</h5>
+                            <p>We maintain ethical standards and transparency in all our practices.</p>
+                        </div>
+                        <div class="about-value">
+                            <i class="fas fa-users"></i>
+                            <h5>Community</h5>
+                            <p>We are dedicated to improving the health of our community.</p>
+                        </div>
+                    </div>
+                    
+                    <h4>Our Team</h4>
+                    <p>Our multidisciplinary team consists of over 50 healthcare professionals including doctors, nurses, therapists, and support staff who work collaboratively to provide comprehensive care. Our specialists are experts in their respective fields with extensive training and experience.</p>
+                    
+                    <h4>Our Facilities</h4>
+                    <p>Hopewell Health boasts state-of-the-art medical facilities equipped with the latest technology for accurate diagnosis and effective treatment. Our modern hospital environment is designed to promote healing and comfort for all patients.</p>
+                    
+                    <h4>Community Involvement</h4>
+                    <p>Beyond providing healthcare services, we are actively involved in community health initiatives, preventive care programs, and health education. We regularly organize free health camps, awareness workshops, and screening programs to promote health and wellness in our community.</p>
+                    
+                    <div class="about-recognition">
+                        <h4>Recognition & Awards</h4>
+                        <p>Hopewell Health has been recognized for its excellence in healthcare delivery and community service. We have received numerous awards and accolades for our commitment to quality care and patient satisfaction.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* About Us Modal Styling */
+    .about-modal-content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .about-modal-image {
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .about-modal-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+        display: block;
+    }
+    
+    .about-modal-image:hover img {
+        transform: scale(1.05);
+    }
+    
+    .about-modal-text h4 {
+        color: #3498db;
+        margin-bottom: 10px;
+        font-size: 1.3rem;
+    }
+    
+    .about-modal-text p {
+        margin-bottom: 15px;
+        line-height: 1.6;
+        color: #555;
+    }
+    
+    .about-values {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+        margin-top: 20px;
+    }
+    
+    .about-value {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        text-align: center;
+    }
+    
+    .about-value i {
+        color: #3498db;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    
+    .about-value h5 {
+        color: #343a40;
+        margin-bottom: 8px;
+        font-size: 1.1rem;
+    }
+    
+    .about-value p {
+        color: #6c757d;
+        font-size: 0.9rem;
+        margin: 0;
+    }
+    
+    @media (max-width: 768px) {
+        .about-values {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add event listener to About Learn More Button
+        const aboutLearnMoreBtn = document.getElementById('aboutLearnMore');
+        const aboutUsModal = document.getElementById('aboutUsModal');
+        
+        if (aboutLearnMoreBtn && aboutUsModal) {
+            aboutLearnMoreBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                aboutUsModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            });
+        }
+        
+        // Close modal functionality
+        const closeModalBtns = document.querySelectorAll('.close-modal');
+        closeModalBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const modal = this.closest('.modal-container');
+                if (modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = ''; // Restore scrolling
+                }
+            });
+        });
+        
+        // Close modal when clicking outside the modal content
+        const modals = document.querySelectorAll('.modal-container');
+        modals.forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.style.display = 'none';
+                    document.body.style.overflow = ''; // Restore scrolling
+                }
+            });
+        });
+    });
+</script>
+</body>
 </html>
