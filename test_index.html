@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hopewell Health - Test Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/logo.png" alt="Hopewell Logo" class="logo-img">
+            <h1>Hopewell</h1>
+        </div>
+        <div class="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#mental-health">Mental Health</a></li>
+            <li><a href="#home-care">Home Care</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact" class="contact-btn">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Hopewell Health Services</h1>
+            <p>Your trusted partner in healthcare excellence</p>
+            <div class="hero-buttons">
+                <a href="#" class="cta-button consultation-btn" data-service="general">Request Consultation</a>
+                <a href="#mental-health" class="cta-button secondary">Mental Health Support</a>
+                <a href="#" class="safe-space-button" id="openSafeSpaceModal"><i class="fas fa-heart"></i>Safe Space</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section (Simplified) -->
+    <section id="services" class="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-heartbeat"></i>
+                <h3>Cardiology</h3>
+                <p>Comprehensive heart care and treatment</p>
+                <a href="#" class="service-btn consultation-btn" data-service="cardiology">Book Consultation</a>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-brain"></i>
+                <h3>Neurology</h3>
+                <p>Expert neurological care and diagnostics</p>
+                <a href="#" class="service-btn consultation-btn" data-service="neurology">Book Consultation</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Mental Health Section (Simplified) -->
+    <section id="mental-health" class="mental-health">
+        <h2 class="section-title">Mental Health Support</h2>
+        <p>A safe space for your mental well-being</p>
+        <div class="mental-health-cta-button">
+            <a href="#" class="mental-health-cta" id="mentalHealthSafeSpaceBtn">
+                <i class="fas fa-comments"></i> Talk to a Counsellor
+            </a>
+        </div>
+    </section>
+
+    <!-- Home Care Section (Simplified) -->
+    <section id="home-care" class="home-care">
+        <h2 class="section-title">Home-Based Care Services</h2>
+        <p>Professional healthcare services delivered to your doorstep</p>
+        <a href="#" class="home-care-cta" id="requestHomeCareCTA">Request Home Care Service</a>
+    </section>
+
+    <!-- Consultation Form -->
+    <section id="consultation" class="consultation">
+        <h2 class="section-title">Request a Consultation</h2>
+        <form id="consultationForm" class="consultation-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" min="0" max="120" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="department">Department</label>
+                    <select id="department" name="department" required>
+                        <option value="">Select Department</option>
+                        <option value="cardiology">Cardiology</option>
+                        <option value="neurology">Neurology</option>
+                        <option value="orthopedics">Orthopedics</option>
+                        <option value="mental-health">Mental Health</option>
+                        <option value="general">General Medicine</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="urgency">Urgency Level</label>
+                    <select id="urgency" name="urgency" required>
+                        <option value="">Select Urgency</option>
+                        <option value="emergency">Emergency (Within 24 hours)</option>
+                        <option value="urgent">Urgent (Within 48 hours)</option>
+                        <option value="routine">Routine (Within 1 week)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="message">Additional Information</label>
+                <textarea id="message" name="message" rows="4"></textarea>
+            </div>
+            <div class="form-group privacy-notice">
+                <input type="checkbox" id="privacy" name="privacy" required>
+                <label for="privacy">I understand that my information will be kept confidential and secure</label>
+            </div>
+            <button type="submit" class="submit-btn">Submit Request</button>
+        </form>
+    </section>
+
+    <!-- Contact Section (Simplified) -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <form id="contactForm" class="contact-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="contactName">Your Name</label>
+                    <input type="text" id="contactName" name="contactName" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactEmail">Your Email</label>
+                    <input type="email" id="contactEmail" name="contactEmail" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="contactMessage">Your Message</label>
+                <textarea id="contactMessage" name="contactMessage" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </section>
+    
+    <!-- Modals -->
+    <!-- Consultation Modal -->
+    <div id="consultationModal" class="modal-container" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Request a Consultation</h3>
+                <button type="button" class="close-modal" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="consultationModalForm" class="modal-form">
+                    <div class="form-group">
+                        <label for="nameModal">Full Name</label>
+                        <input type="text" id="nameModal" name="nameModal" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="departmentModal">Department</label>
+                        <select id="departmentModal" name="departmentModal" required>
+                            <option value="">Select Department</option>
+                            <option value="cardiology">Cardiology</option>
+                            <option value="neurology">Neurology</option>
+                            <option value="orthopedics">Orthopedics</option>
+                            <option value="general">General Medicine</option>
+                            <option value="mental-health">Mental Health</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="submit-btn">Submit Request</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Safe Space Modal -->
+    <div id="safeSpaceModal" class="modal-container" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Safe Space - Mental Health Support</h3>
+                <button type="button" class="close-modal" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="safeSpaceForm">
+                    <div class="form-group">
+                        <label for="preferredDate">Preferred Date</label>
+                        <input type="date" id="preferredDate" name="preferredDate" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Book Session</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Home Care Modal -->
+    <div id="homeCareModal" class="modal-container" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Request Home Care Services</h3>
+                <button type="button" class="close-modal" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="homeCareModalForm" class="modal-form">
+                    <div class="form-group">
+                        <label for="homeCareModalName">Full Name</label>
+                        <input type="text" id="homeCareModalName" name="homeCareModalName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="serviceTypeModal">Service Required</label>
+                        <select id="serviceTypeModal" name="serviceTypeModal" required>
+                            <option value="">Select Service</option>
+                            <option value="lab-test">Laboratory Test</option>
+                            <option value="drug-delivery">Drug Delivery</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="submit-btn">Request Service</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="hero-buttons.js"></script>
+</body>
+</html>
