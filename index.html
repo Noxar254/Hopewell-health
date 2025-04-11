@@ -386,6 +386,11 @@
                         <li>Family & Relationship Counseling</li>
                     </ul>
                 </div>
+                <div class="mental-health-cta-button">
+                    <a href="#" class="mental-health-cta pulse-animation" id="mentalHealthSafeSpaceBtn">
+                        <i class="fas fa-comments"></i> Talk to a Counsellor
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -951,7 +956,7 @@
                 submitBtn.disabled = true;
                 
                 // Use mailto link to open email client
-                const mailtoLink = `mailto:info@hopewellhealth.com?subject=${encodeURIComponent("Medical Tourism Information Request")}&body=${encodeURIComponent(emailBody)}`;
+                const mailtoLink = `mailto:hopewell.healthcare22@yahoo.com?subject=${encodeURIComponent("Medical Tourism Information Request")}&body=${encodeURIComponent(emailBody)}`;
                 window.location.href = mailtoLink;
                 
                 // Reset form after delay
@@ -1003,7 +1008,7 @@
                 submitBtn.disabled = true;
                 
                 // Use mailto link to open email client
-                const mailtoLink = `mailto:humphreyabwao@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+                const mailtoLink = `mailto:hopewell.healthcare22@yahoo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
                 window.location.href = mailtoLink;
                 
                 // Reset form after delay
@@ -3122,6 +3127,45 @@
                     <input type="checkbox" id="safePrivacy" name="safePrivacy" required>
                     <label for="safePrivacy">I understand that my information will be kept confidential and secure</label>
                 </div>
+                
+                <!-- Payment Section -->
+                <div class="payment-section">
+                    <div class="payment-header">
+                        <div>
+                            <h4>Payment Required - KSh 1,500</h4>
+                            <p>A non-refundable consultation fee is required to process your therapy session booking.</p>
+                        </div>
+                        <span class="payment-badge">Required</span>
+                    </div>
+                    
+                    <div class="payment-options">
+                        <div class="safe-space-payment-option active" data-method="mpesa">
+                            <i class="fas fa-mobile-alt"></i>
+                            <div>M-Pesa</div>
+                        </div>
+                        <div class="safe-space-payment-option" data-method="card">
+                            <i class="fas fa-credit-card"></i>
+                            <div>Card</div>
+                        </div>
+                        <div class="safe-space-payment-option" data-method="bank">
+                            <i class="fas fa-university"></i>
+                            <div>Bank Transfer</div>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-verification">
+                        <label for="safeSpacePaymentReference">M-Pesa Transaction ID</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-hashtag"></i>
+                            <input type="text" id="safeSpacePaymentReference" name="safeSpacePaymentReference" placeholder="Enter your M-Pesa transaction ID" required>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-instructions">
+                        <p><strong>M-Pesa Instructions:</strong> Send KSh 1,500 to Till No: 7636095 (Hopewell Health - Mental Health Services)</p>
+                    </div>
+                </div>
+                
                 <button type="submit" class="submit-btn">Book Therapy Session</button>
             </form>
         </div>
@@ -3262,7 +3306,7 @@
                 submitBtn.disabled = true;
                 
                 // Use mailto link to open email client
-                const mailtoLink = `mailto:info@hopewellhealth.com?subject=${encodeURIComponent("Safe Space Therapy Session Request")}&body=${encodeURIComponent(emailBody)}`;
+                const mailtoLink = `mailto:hopewell.healthcare22@yahoo.com?subject=${encodeURIComponent("Safe Space Therapy Session Request")}&body=${encodeURIComponent(emailBody)}`;
                 window.location.href = mailtoLink;
                 
                 // Reset form after delay
@@ -3287,6 +3331,35 @@
             });
         }
         
+        // Handle payment options in Safe Space modal
+        const safeSpacePaymentOptions = document.querySelectorAll('.safe-space-payment-option');
+        if (safeSpacePaymentOptions.length > 0) {
+            safeSpacePaymentOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove active class from all options
+                    safeSpacePaymentOptions.forEach(opt => opt.classList.remove('active'));
+                    // Add active class to clicked option
+                    this.classList.add('active');
+                    
+                    // Update payment reference label based on selection
+                    const method = this.dataset.method;
+                    const referenceLabel = document.querySelector('label[for="safeSpacePaymentReference"]');
+                    const referenceInput = document.getElementById('safeSpacePaymentReference');
+                    
+                    if(method === 'mpesa') {
+                        referenceLabel.textContent = 'M-Pesa Transaction ID';
+                        referenceInput.placeholder = 'Enter your M-Pesa transaction ID';
+                    } else if(method === 'card') {
+                        referenceLabel.textContent = 'Card Payment Reference';
+                        referenceInput.placeholder = 'Enter card payment reference';
+                    } else if(method === 'bank') {
+                        referenceLabel.textContent = 'Bank Transfer Reference';
+                        referenceInput.placeholder = 'Enter bank transfer reference';
+                    }
+                });
+            });
+        }
+        
         // Set minimum date for date picker to today
         const preferredDateInput = document.getElementById('preferredDate');
         if (preferredDateInput) {
@@ -3294,9 +3367,24 @@
             preferredDateInput.min = today;
         }
         
+        // Add event listener to Mental Health section "Access Safe Space" Button
+        const mentalHealthSafeSpaceBtn = document.getElementById('mentalHealthSafeSpaceBtn');
+        const safeSpaceModal = document.getElementById('safeSpaceModal');
+        
+        if (mentalHealthSafeSpaceBtn && safeSpaceModal) {
+            mentalHealthSafeSpaceBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                safeSpaceModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+                
+                // Focus first form element for accessibility
+                const firstInput = safeSpaceModal.querySelector('input, select, textarea');
+                if (firstInput) firstInput.focus();
+            });
+        }
+        
         // Add event listener to Safe Space Button if not already handled
         const safeSpaceBtn = document.getElementById('openSafeSpaceModal');
-        const safeSpaceModal = document.getElementById('safeSpaceModal');
         
         if (safeSpaceBtn && safeSpaceModal) {
             safeSpaceBtn.addEventListener('click', function(e) {

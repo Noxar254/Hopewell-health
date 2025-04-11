@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                     try {
                         // Send email using mailto
-                        const mailtoLink = `mailto:humphreyabwao@yahoo.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+                        const mailtoLink = `mailto:hopewell.healthcare22@yahoo.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
                         window.location.href = mailtoLink;
                         
                         // Show success message
@@ -539,7 +539,7 @@ async function sendToGoogleSheets(formData, formType) {
         emailBody += `\nSubmitted on: ${new Date().toLocaleString()}`;
         
         // Create mailto link
-        const mailtoLink = `mailto:humphreyabwao@yahoo.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+        const mailtoLink = `mailto:hopewell.healthcare22@yahoo.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
         
         // Open email client
         window.location.href = mailtoLink;
@@ -1918,7 +1918,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     emailBody += `\nSubmitted on: ${new Date().toLocaleString()}`;
                     
                     // Create mailto link
-                    const mailtoLink = `mailto:humphreyabwao@yahoo.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+                    const mailtoLink = `mailto:hopewell.healthcare22@yahoo.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
                     
                     // Open email client
                     window.location.href = mailtoLink;
@@ -2482,7 +2482,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 submitBtn.disabled = true;
                 
                 // Use mailto link to open email client
-                const mailtoLink = `mailto:info@hopewellhealth.com?subject=${encodeURIComponent(modalForm.subject)}&body=${encodeURIComponent(emailBody)}`;
+                const mailtoLink = `mailto:hopewell.healthcare22@yahoo.com?subject=${encodeURIComponent(modalForm.subject)}&body=${encodeURIComponent(emailBody)}`;
                 window.location.href = mailtoLink;
                 
                 // Reset form after delay
